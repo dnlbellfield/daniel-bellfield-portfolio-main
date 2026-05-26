@@ -1720,6 +1720,170 @@
       width: 1rem;
       height: 1rem;
     }
+
+    /* ============================================
+       FINAL VISUAL BALANCE PASS
+       ============================================ */
+    :root {
+      --ink: #111d13;
+      --ink-soft: #3f5143;
+      --ink-muted: #718075;
+      --title-ink: #2f4934;
+      --body-ink: #34483a;
+      --accent: #415d43;
+      --accent-hover: #304833;
+      --accent-soft: #e9f1e7;
+      --paper: #fbfcf8;
+      --paper-warm: #f3f6ef;
+      --surface: #ffffff;
+      --line: #e2e7df;
+      --line-strong: #cfd8cc;
+      --shadow-sm: 0 1px 2px rgba(17, 29, 19, 0.035);
+      --shadow-md: 0 6px 18px rgba(17, 29, 19, 0.065);
+      --shadow-lg: 0 18px 42px rgba(17, 29, 19, 0.085);
+    }
+
+    body {
+      color: var(--body-ink);
+      background: var(--paper);
+    }
+
+    .hero,
+    #what-i-do,
+    .skills,
+    #projects {
+      background: var(--paper);
+    }
+
+    .value-map,
+    .about {
+      background: var(--paper-warm);
+    }
+
+    .section-header {
+      max-width: 40rem;
+    }
+
+    .section-title {
+      color: var(--title-ink);
+      text-wrap: balance;
+    }
+
+    .section-lede,
+    .hero-support,
+    .work-intro p,
+    .skills-feature p,
+    .about-body p,
+    .project-body p,
+    .value-step p,
+    .work-card p,
+    .skill-lane p,
+    .value-outcome {
+      color: var(--ink-soft);
+    }
+
+    .work-card,
+    .skill-lane,
+    .value-step,
+    .project-card,
+    .skills-feature,
+    .value-outcome {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .work-card,
+    .skill-lane,
+    .value-step {
+      padding: 1.1rem;
+    }
+
+    .project-body {
+      padding: 1.15rem;
+    }
+
+    .work-cards,
+    .skill-lanes,
+    .systems-flow {
+      gap: 0.85rem;
+    }
+
+    .work-card h3,
+    .skill-lane h3,
+    .value-step h3,
+    .project-card h3 {
+      color: var(--title-ink);
+      font-weight: 600;
+    }
+
+    .systems-summary {
+      background: var(--accent);
+      color: rgba(255, 255, 255, 0.82);
+      box-shadow: var(--shadow-md);
+    }
+
+    .systems-summary .kicker {
+      color: #b9d7bd;
+    }
+
+    .systems-summary h3 {
+      color: #ffffff;
+    }
+
+    .systems-summary p {
+      color: rgba(255, 255, 255, 0.76);
+    }
+
+    .systems-points li {
+      color: rgba(255, 255, 255, 0.88);
+      font-weight: 500;
+    }
+
+    .systems-points li::before {
+      background: #b9d7bd;
+    }
+
+    .systems-summary::after {
+      background: rgba(185, 215, 189, 0.18);
+    }
+
+    .card-icon,
+    .value-step::before {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .chip,
+    .tag,
+    .value-tags span,
+    .fact {
+      background: var(--accent-soft);
+      border-color: transparent;
+      color: var(--accent);
+    }
+
+    .btn-primary,
+    .site-footer {
+      background: var(--ink);
+    }
+
+    .hero-image,
+    .about-photo {
+      background: linear-gradient(180deg, #8fb996 0%, #a1cca5 100%);
+    }
+
+    @media (min-width: 900px) {
+      .work-grid,
+      .about-grid {
+        gap: 3.5rem;
+      }
+
+      .systems-map {
+        gap: 1.5rem;
+      }
+    }
   </style>
 </head>
 
