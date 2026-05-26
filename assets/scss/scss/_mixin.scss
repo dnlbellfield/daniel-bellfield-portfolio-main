@@ -1,0 +1,48 @@
+// Media Responsive
+@mixin up-xsm {
+	@media(min-width: $portflolio-media-xsm + 1 ){
+		@content;
+	}
+}
+
+@mixin down-xsm {
+	@media(max-width: $portflolio-media-xsm){
+		@content;
+	}
+}
+
+@mixin up-sm {
+	@media(min-width: $portflolio-media-sm + 1 ){
+		@content;
+	}
+}
+
+@mixin down-sm {
+	@media(max-width: $portflolio-media-sm){
+		@content;
+	}
+}
+
+@mixin up-md {
+	@media(min-width: $portflolio-media-md + 1 ){
+		@content;
+	}
+}
+
+@mixin down-md {
+	@media(max-width: $portflolio-media-md){
+		@content;
+	}
+}
+
+@mixin up-lg {
+	@media(min-width: $portflolio-media-lg + 1 ){
+		@content;
+	}
+}
+
+@mixin down-lg {
+	@media(max-width: $portflolio-media-lg){
+		@content;
+	}
+}
