@@ -1528,6 +1528,198 @@
     .value-tags span {
       letter-spacing: 0.04em;
     }
+
+    /* ============================================
+       TYPE CLEANUP: FEWER STYLES, STRONGER RHYTHM
+       ============================================ */
+    :root {
+      --type-eyebrow: 0.72rem;
+      --type-body-sm: 0.9rem;
+      --type-body: 0.98rem;
+      --type-body-lg: 1.06rem;
+      --type-card-title: 1rem;
+      --type-panel-title: clamp(1.45rem, 2.15vw, 1.95rem);
+      --type-section-title: clamp(1.9rem, 2.8vw, 2.45rem);
+      --type-hero-title: clamp(2.45rem, 4.6vw, 3.85rem);
+      --lh-tight: 1.08;
+      --lh-title: 1.14;
+      --lh-copy: 1.64;
+      --lh-relaxed: 1.72;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    p,
+    a,
+    li,
+    span {
+      font-family: var(--font-sans);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      line-height: var(--lh-copy);
+    }
+
+    .section {
+      padding: 5.25rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .section {
+        padding: 6rem 0;
+      }
+    }
+
+    .section-header {
+      max-width: 42rem;
+      margin: 0 auto 2.75rem;
+      text-align: center;
+    }
+
+    .kicker {
+      font-size: var(--type-eyebrow);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-title {
+      font-size: var(--type-hero-title);
+      font-weight: 700;
+      line-height: var(--lh-tight);
+      letter-spacing: -0.04em;
+      margin-bottom: 1.15rem;
+    }
+
+    .section-title {
+      font-size: var(--type-section-title);
+      font-weight: 700;
+      line-height: var(--lh-title);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.85rem;
+    }
+
+    .work-intro h2,
+    .skills-feature h2,
+    .systems-summary h3 {
+      font-size: var(--type-panel-title);
+      font-weight: 700;
+      line-height: var(--lh-title);
+      letter-spacing: -0.025em;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-statement {
+      font-size: var(--type-body-lg);
+      font-weight: 500;
+      line-height: var(--lh-copy);
+      letter-spacing: 0;
+      max-width: 30rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-support,
+    .section-lede,
+    .work-intro p,
+    .skills-feature p,
+    .about-body p,
+    .project-body p,
+    .systems-summary p,
+    .value-step p,
+    .work-card p,
+    .skill-lane p,
+    .value-outcome {
+      font-size: var(--type-body);
+      font-weight: 400;
+      line-height: var(--lh-copy);
+      letter-spacing: 0;
+      color: var(--ink-soft);
+    }
+
+    .section-lede {
+      font-size: var(--type-body-lg);
+      line-height: var(--lh-relaxed);
+      max-width: 39rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .about-body {
+      max-width: 44rem;
+    }
+
+    .about-lead,
+    .about-body p {
+      font-size: var(--type-body-lg);
+      font-weight: 400;
+      line-height: var(--lh-relaxed);
+      letter-spacing: 0;
+      color: var(--ink-soft);
+      margin-bottom: 1.15rem;
+    }
+
+    .about-lead {
+      color: var(--body-ink);
+    }
+
+    .work-card h3,
+    .skill-lane h3,
+    .value-step h3,
+    .project-card h3 {
+      font-size: var(--type-card-title);
+      font-weight: 600;
+      line-height: 1.28;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
+    }
+
+    .chip,
+    .tag,
+    .fact,
+    .value-tags span,
+    .systems-points li,
+    .proof-list li,
+    .nav-links a,
+    .btn,
+    .project-link {
+      font-size: var(--type-body-sm);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .tag,
+    .value-tags span {
+      font-size: 0.68rem;
+      letter-spacing: 0.04em;
+    }
+
+    .work-card,
+    .skill-lane,
+    .value-step,
+    .project-card {
+      border-color: var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-icon {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    .card-icon svg {
+      width: 1rem;
+      height: 1rem;
+    }
   </style>
 </head>
 
