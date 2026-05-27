@@ -37,1868 +37,21 @@
     rel="stylesheet"
   />
 
-  <style>
-    /* ============================================
-       DESIGN TOKENS
-       ============================================ */
-    :root {
-      /* Palette — restrained, two accents max */
-      --ink: #0f1a11;
-      --ink-soft: #3a4a3d;
-      --ink-muted: #6b7a6e;
-      --line: #e4e8e1;
-      --line-strong: #d1d8cd;
-      --paper: #fafbf7;
-      --paper-warm: #f4f6ef;
-      --surface: #ffffff;
-      --accent: #415d43;
-      --accent-hover: #2f4632;
-      --accent-soft: #e8f0e5;
-
-      /* Typography */
-      --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-
-      /* Spacing scale */
-      --radius-sm: 0.5rem;
-      --radius-md: 0.75rem;
-      --radius-lg: 1rem;
-
-      /* Shadows — subtle */
-      --shadow-sm: 0 1px 2px rgba(15, 26, 17, 0.04);
-      --shadow-md: 0 4px 16px rgba(15, 26, 17, 0.06);
-      --shadow-lg: 0 16px 40px rgba(15, 26, 17, 0.08);
-    }
-
-    /* ============================================
-       RESET & BASE
-       ============================================ */
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: var(--font-sans);
-      font-size: 16px;
-      line-height: 1.6;
-      color: var(--ink);
-      background: var(--paper);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: color 0.15s ease;
-    }
-
-    a:hover {
-      color: var(--accent-hover);
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      margin: 0;
-      color: var(--ink);
-      letter-spacing: -0.02em;
-      line-height: 1.15;
-    }
-
-    p {
-      margin: 0;
-    }
-
-    section {
-      scroll-margin-top: 5rem;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    /* ============================================
-       HEADER / NAV
-       ============================================ */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(250, 251, 247, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 4rem;
-    }
-
-    .nav-brand {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .nav-links {
-      display: none;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      gap: 0.25rem;
-      align-items: center;
-    }
-
-    @media (min-width: 768px) {
-      .nav-links {
-        display: flex;
-      }
-    }
-
-    .nav-links a {
-      color: var(--ink-soft);
-      font-size: 0.9rem;
-      font-weight: 500;
-      padding: 0.5rem 0.85rem;
-      border-radius: var(--radius-sm);
-      transition: color 0.15s ease, background 0.15s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--ink);
-      background: var(--accent-soft);
-    }
-
-    .nav-social {
-      display: flex;
-      gap: 0.5rem;
-      align-items: center;
-    }
-
-    .social-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: var(--radius-sm);
-      background: var(--ink);
-      color: #fff;
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-
-    .social-icon:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .social-icon svg {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    /* ============================================
-       SECTION PRIMITIVES
-       ============================================ */
-    .section {
-      padding: 5rem 0;
-    }
-
-    @media (min-width: 768px) {
-      .section {
-        padding: 6.5rem 0;
-      }
-    }
-
-    .section-header {
-      max-width: 42rem;
-      margin: 0 auto 3.5rem;
-      text-align: center;
-    }
-
-    .kicker {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .section-lede {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      line-height: 1.65;
-    }
-
-    /* ============================================
-       HERO
-       ============================================ */
-    .hero {
-      padding: 4rem 0 5rem;
-      background:
-        radial-gradient(circle at 85% 20%, var(--accent-soft) 0%, transparent 45%),
-        var(--paper);
-    }
-
-    @media (min-width: 768px) {
-      .hero {
-        padding: 6rem 0 7rem;
-      }
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    @media (min-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1.1fr 0.9fr;
-        gap: 4rem;
-      }
-    }
-
-    .hero-title {
-      font-size: clamp(2.75rem, 6vw, 4.75rem);
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      line-height: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-statement {
-      font-size: clamp(1.15rem, 1.6vw, 1.4rem);
-      font-weight: 500;
-      color: var(--ink);
-      line-height: 1.4;
-      margin-bottom: 1.25rem;
-      max-width: 32rem;
-    }
-
-    .hero-support {
-      font-size: 1rem;
-      color: var(--ink-soft);
-      line-height: 1.7;
-      max-width: 30rem;
-      margin-bottom: 2rem;
-    }
-
-    .hero-image {
-      aspect-ratio: 4 / 5;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--accent-soft);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center top;
-    }
-
-    /* ============================================
-       BUTTONS
-       ============================================ */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border-radius: var(--radius-sm);
-      transition: all 0.15s ease;
-      border: 1px solid transparent;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--ink);
-      color: #fff;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent);
-      color: #fff;
-      transform: translateY(-1px);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: var(--ink);
-      border-color: var(--line-strong);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--ink);
-      color: var(--ink);
-      transform: translateY(-1px);
-    }
-
-    /* ============================================
-       WHAT I DO
-       ============================================ */
-    .work-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    @media (min-width: 900px) {
-      .work-grid {
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 4rem;
-        align-items: start;
-      }
-    }
-
-    .work-intro {
-      position: sticky;
-      top: 6rem;
-    }
-
-    @media (max-width: 899px) {
-      .work-intro {
-        position: static;
-      }
-    }
-
-    .work-intro h2 {
-      font-size: clamp(2rem, 4vw, 2.75rem);
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .work-intro p {
-      color: var(--ink-soft);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 1.75rem;
-    }
-
-    .proof-list {
-      display: grid;
-      gap: 0.65rem;
-    }
-
-    .proof-list li {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.95rem;
-      color: var(--ink);
-      font-weight: 500;
-      list-style: none;
-    }
-
-    .proof-list li::before {
-      content: "";
-      width: 0.375rem;
-      height: 0.375rem;
-      border-radius: 50%;
-      background: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .proof-list {
-      padding: 0;
-      margin: 0;
-    }
-
-    .work-cards {
-      display: grid;
-      gap: 0.875rem;
-    }
-
-    .work-card {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      padding: 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    .work-card:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .card-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.25rem;
-      height: 2.25rem;
-      border-radius: var(--radius-sm);
-      background: var(--accent-soft);
-      color: var(--accent);
-      flex-shrink: 0;
-    }
-
-    .card-icon svg {
-      width: 1.125rem;
-      height: 1.125rem;
-    }
-
-    .work-card h3 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .work-card p {
-      font-size: 0.925rem;
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    /* ============================================
-       VALUE MAP
-       ============================================ */
-    .value-map {
-      background: var(--paper-warm);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .systems-map {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.25rem;
-    }
-
-    @media (min-width: 960px) {
-      .systems-map {
-        grid-template-columns: 0.78fr 1.22fr;
-        gap: 2rem;
-        align-items: start;
-      }
-    }
-
-    .systems-summary {
-      position: relative;
-      padding: 1.5rem;
-      background: var(--accent);
-      border-radius: var(--radius-lg);
-      color: rgba(255, 255, 255, 0.78);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-
-    @media (min-width: 960px) {
-      .systems-summary {
-        position: sticky;
-        top: 6rem;
-      }
-    }
-
-    .systems-summary::after {
-      content: "";
-      position: absolute;
-      right: -5rem;
-      bottom: -5rem;
-      width: 13rem;
-      height: 13rem;
-      border-radius: 50%;
-      background: rgba(161, 204, 165, 0.16);
-    }
-
-    .systems-summary .kicker {
-      color: var(--portrait-green-top);
-    }
-
-    .systems-summary h3 {
-      position: relative;
-      color: #fff;
-      font-size: clamp(1.75rem, 3vw, 2.45rem);
-      font-weight: 700;
-      line-height: 1.05;
-      margin-bottom: 1rem;
-    }
-
-    .systems-summary p {
-      position: relative;
-      max-width: 26rem;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.7;
-    }
-
-    .systems-points {
-      position: relative;
-      display: grid;
-      gap: 0.65rem;
-      padding: 0;
-      margin: 1.5rem 0 0;
-      list-style: none;
-    }
-
-    .systems-points li {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      color: rgba(255, 255, 255, 0.86);
-      font-size: 0.92rem;
-      font-weight: 500;
-    }
-
-    .systems-points li::before {
-      content: "";
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: var(--portrait-green-top);
-      flex: 0 0 auto;
-    }
-
-    .systems-flow {
-      display: grid;
-      gap: 0.8rem;
-      counter-reset: valueStep;
-    }
-
-    .value-step {
-      counter-increment: valueStep;
-      position: relative;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      padding: 1.15rem;
-      background: rgba(255, 255, 255, 0.9);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .value-step::before {
-      content: counter(valueStep, decimal-leading-zero);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 2.35rem;
-      height: 2.35rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.78rem;
-      font-weight: 700;
-    }
-
-    @media (min-width: 960px) {
-      .value-step {
-        padding: 1.2rem 1.35rem;
-      }
-
-      .value-step:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        left: 2.32rem;
-        top: 3.65rem;
-        bottom: -1rem;
-        width: 1px;
-        background: var(--line-strong);
-      }
-    }
-
-    .value-step h3 {
-      color: var(--title-ink);
-      font-size: 1.02rem;
-      font-weight: 600;
-      margin-bottom: 0.35rem;
-    }
-
-    .value-step p {
-      color: var(--ink-soft);
-      font-size: 0.93rem;
-      line-height: 1.65;
-    }
-
-    .value-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
-    }
-
-    .value-tags span {
-      display: inline-flex;
-      padding: 0.26rem 0.55rem;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
-    .value-outcome {
-      margin-top: 1rem;
-      padding: 1rem 1.15rem;
-      border: 1px solid var(--line-strong);
-      border-radius: var(--radius-md);
-      background: var(--surface);
-      color: var(--ink-soft);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    /* ============================================
-       SKILLS
-       ============================================ */
-    .skills {
-      background: var(--surface);
-    }
-
-    .skills-feature {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      padding: 2rem;
-      background: var(--paper-warm);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      margin-bottom: 1.25rem;
-    }
-
-    @media (min-width: 900px) {
-      .skills-feature {
-        grid-template-columns: 0.9fr 1.1fr;
-        gap: 3rem;
-        padding: 2.5rem;
-        align-items: center;
-      }
-    }
-
-    .skills-feature h2 {
-      font-size: clamp(1.75rem, 3vw, 2.25rem);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-    }
-
-    .skills-feature p {
-      color: var(--ink-soft);
-      line-height: 1.65;
-    }
-
-    .tool-cloud {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.4rem 0.75rem;
-      background: var(--surface);
-      border: 1px solid var(--line-strong);
-      border-radius: 999px;
-      font-size: 0.825rem;
-      font-weight: 500;
-      color: var(--ink);
-    }
-
-    .skill-lanes {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 0.875rem;
-    }
-
-    @media (min-width: 640px) {
-      .skill-lanes {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .skill-lanes {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .skill-lane {
-      padding: 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-    }
-
-    .lane-head {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
-    .skill-lane h3 {
-      font-size: 0.975rem;
-      font-weight: 600;
-    }
-
-    .skill-lane p {
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-      line-height: 1.6;
-    }
-
-    /* ============================================
-       ABOUT
-       ============================================ */
-    .about {
-      background: var(--paper-warm);
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      align-items: start
-
-    }
-
-    @media (min-width: 900px) {
-      .about-grid {
-        grid-template-columns: 0.85fr 1.15fr;
-        gap: 4rem;
-      }
-    }
-
-    .about-photo {
-      aspect-ratio: 1 / 1;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: var(--portrait-green-top);
-      box-shadow: var(--shadow-lg);
-      max-width: 24rem;
-      margin: 0 auto;
-    }
-
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .about-lead {
-      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.35;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.015em;
-    }
-
-    .about-body p {
-      color: var(--ink-soft);
-      line-height: 1.75;
-      margin-bottom: 1rem;
-    }
-
-    .about-facts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.5rem;
-      margin: 1.75rem 0;
-    }
-
-    @media (max-width: 540px) {
-      .about-facts {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .fact {
-      padding: 0.75rem;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-      font-size: 0.825rem;
-      font-weight: 500;
-      color: var(--ink);
-      text-align: center;
-    }
-
-    /* ============================================
-       PROJECTS
-       ============================================ */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-    }
-
-    @media (min-width: 640px) {
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (min-width: 900px) {
-      .projects-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-
-    .project-card {
-      display: flex;
-      flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
-      color: inherit;
-    }
-
-    .project-card:hover {
-      border-color: var(--line-strong);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      color: inherit;
-    }
-
-    .project-media {
-      aspect-ratio: 16 / 10;
-      background: var(--paper-warm);
-      border-bottom: 1px solid var(--line);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .project-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      padding: 1.25rem;
-    }
-
-    .project-body {
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 0.875rem;
-    }
-
-    .tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      background: var(--accent-soft);
-      color: var(--accent);
-      border-radius: 999px;
-    }
-
-    .project-card h3 {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .project-card p {
-      font-size: 0.925rem;
-      color: var(--ink-soft);
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-      flex: 1;
-    }
-
-    .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .project-link.muted {
-      color: var(--ink-muted);
-    }
-
-    /* QR mock — clean, structured */
-    .qr-mock {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 3px;
-      width: 9rem;
-      height: 9rem;
-      padding: 0.75rem;
-      background: #fff;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .qr-mock span {
-      background: var(--ink);
-      border-radius: 1px;
-    }
-
-    .qr-mock span.off {
-      background: transparent;
-    }
-
-    .qr-mock span.accent {
-      background: var(--accent);
-    }
-
-    /* ============================================
-       FOOTER
-       ============================================ */
-    .site-footer {
-      background: var(--ink);
-      color: rgba(255, 255, 255, 0.7);
-      padding: 3.5rem 0 2rem;
-    }
-
-    .footer-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
-      text-align: center;
-    }
-
-    @media (min-width: 768px) {
-      .footer-grid {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        text-align: left;
-      }
-    }
-
-    .footer-brand p:first-child {
-      color: #fff;
-      font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .footer-brand p:last-child {
-      font-size: 0.875rem;
-      color: rgba(255, 255, 255, 0.55);
-    }
-
-    .footer-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-    }
-
-    .footer-nav a {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.9rem;
-    }
-
-    .footer-nav a:hover {
-      color: #fff;
-    }
-
-    .footer-social {
-      display: flex;
-      gap: 0.625rem;
-    }
-
-    .footer-social .social-icon {
-      background: rgba(255, 255, 255, 0.08);
-    }
-
-    .footer-social .social-icon:hover {
-      background: var(--accent);
-    }
-
-    .footer-bottom {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.4);
-    }
-
-    /* ============================================
-       ANIMATIONS
-       ============================================ */
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .fade-up {
-      animation: fadeUp 0.6s ease-out both;
-    }
-
-    .delay-1 {
-      animation-delay: 0.1s;
-    }
-    .delay-2 {
-      animation-delay: 0.2s;
-    }
-    .delay-3 {
-      animation-delay: 0.3s;
-    }
-    .delay-4 {
-      animation-delay: 0.4s;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-      html {
-        scroll-behavior: auto;
-      }
-
-      /* ============================================
-   HERO — refined proportions
-   ============================================ */
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);  /* was 6vw/4.75rem */
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 1.5rem;
-}
-
-.hero-image {
-  aspect-ratio: 4 / 5;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: linear-gradient(180deg, var(--accent-soft) 0%, #d8e6d4 100%);
-  box-shadow: var(--shadow-lg);
-  position: relative;
-}
-
-/* Subtle inner ring for polish */
-.hero-image::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  box-shadow: inset 0 0 0 1px rgba(15, 26, 17, 0.06);
-  pointer-events: none;
-}
-
-/* ============================================
-   WHAT I DO — give the intro real presence
-   ============================================ */
-.work-intro {
-  position: sticky;
-  top: 6rem;
-  padding: 2rem;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-}
-
-@media (max-width: 899px) {
-  .work-intro {
-    position: static;
-    padding: 1.75rem;
-  }
-}
-
-.work-intro h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 700;
-  margin-bottom: 0.875rem;
-  letter-spacing: -0.025em;
-}
-
-.work-intro p {
-  color: var(--ink-soft);
-  font-size: 1rem;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-}
-
-.proof-list {
-  display: grid;
-  gap: 0.6rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-}
-
-.proof-list li {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.925rem;
-  color: var(--ink);
-  font-weight: 500;
-  list-style: none;
-}
-
-/* ============================================
-   SECTION BACKGROUNDS — add rhythm
-   ============================================ */
-.section:nth-of-type(odd) {
-  background: var(--surface);
-}
-
-#what-i-do {
-  background: var(--paper);
-}
-
-.skills {
-  background: var(--surface);
-}
-
-.about {
-  background: var(--paper-warm);
-}
-
-#projects {
-  background: var(--surface);
-}
-
-/* ============================================
-   QR MOCK — denser, recognizable pattern
-   ============================================ */
-.qr-mock {
-  display: grid;
-  grid-template-columns: repeat(11, 1fr);
-  grid-template-rows: repeat(11, 1fr);
-  gap: 2px;
-  width: 10rem;
-  height: 10rem;
-  padding: 0.5rem;
-  background: #fff;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-sm);
-}
-
-.qr-mock span {
-  background: var(--ink);
-  border-radius: 0.5px;
-}
-
-.qr-mock span.off {
-  background: transparent;
-}
-
-.qr-mock span.accent {
-  background: var(--accent);
-}
-
-/* Finder pattern helpers */
-.qr-mock .finder {
-  background: var(--ink);
-}
-
-.qr-mock .finder-inner {
-  background: #fff;
-}
-
-.qr-mock .finder-core {
-  background: var(--ink);
-}
-    }
-
-    /* ============================================
-       FINAL TYPE + HERO COLOR REFINEMENT
-       ============================================ */
-    :root {
-      --title-ink: #2D4430;
-      --body-ink: #2F4033;
-      --portrait-green-top: #8FB996;
-      --portrait-green-bottom: #A1CCA5;
-    }
-
-    body {
-      font-weight: 400;
-      color: var(--body-ink);
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      color: var(--title-ink);
-    }
-
-    .hero-title {
-      color: var(--title-ink);
-      font-size: clamp(2.65rem, 5.5vw, 4.35rem);
-      font-weight: 700;
-      letter-spacing: -0.045em;
-      line-height: 1.02;
-    }
-
-    .hero-statement {
-      color: var(--body-ink);
-      font-size: clamp(1.12rem, 1.45vw, 1.32rem);
-      font-weight: 500;
-      line-height: 1.45;
-      letter-spacing: -0.015em;
-    }
-
-    .hero-support,
-    .work-intro p,
-    .section-lede,
-    .about-body p,
-    .project-body p,
-    .work-card p,
-    .skill-lane p {
-      color: var(--ink-soft);
-      font-weight: 400;
-    }
-
-    .section-title,
-    .work-intro h2,
-    .skills-feature h2 {
-      color: var(--title-ink);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    .work-card h3,
-    .skill-lane h3,
-    .project-body h3,
-    .about-lead {
-      color: var(--title-ink);
-      font-weight: 600;
-    }
-
-    .kicker {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .btn,
-    .nav-links a,
-    .chip,
-    .tag,
-    .fact {
-      font-weight: 600;
-    }
-
-    .hero-image {
-      background:
-        linear-gradient(180deg, var(--portrait-green-top) 0%, var(--portrait-green-bottom) 100%);
-      box-shadow: 0 18px 48px rgba(15, 26, 17, 0.1);
-    }
-
-    .hero-image::after {
-      box-shadow: inset 0 0 0 1px rgba(65, 93, 67, 0.16);
-    }
-
-    /* ============================================
-       COHESIVE TYPE SYSTEM
-       ============================================ */
-    :root {
-      --type-eyebrow: 0.74rem;
-      --type-body-sm: 0.92rem;
-      --type-body: 1rem;
-      --type-body-lg: 1.08rem;
-      --type-card-title: 1.02rem;
-      --type-panel-title: clamp(1.55rem, 2.6vw, 2.15rem);
-      --type-section-title: clamp(1.95rem, 3.4vw, 2.75rem);
-      --type-hero-title: clamp(2.65rem, 5vw, 4.15rem);
-      --lh-tight: 1.08;
-      --lh-title: 1.14;
-      --lh-copy: 1.62;
-      --lh-relaxed: 1.72;
-    }
-
-    html,
-    body,
-    button,
-    input,
-    textarea,
-    select {
-      font-family: var(--font-sans);
-    }
-
-    body {
-      font-size: var(--type-body);
-      line-height: var(--lh-copy);
-    }
-
-    .kicker {
-      font-size: var(--type-eyebrow);
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      line-height: 1.2;
-      margin-bottom: 0.85rem;
-    }
-
-    .hero-title {
-      font-size: var(--type-hero-title);
-      font-weight: 700;
-      line-height: var(--lh-tight);
-      letter-spacing: -0.045em;
-    }
-
-    .hero-content {
-      max-width: 34rem;
-    }
-
-    .section-title {
-      font-size: var(--type-section-title);
-      font-weight: 700;
-      line-height: var(--lh-title);
-      letter-spacing: -0.035em;
-    }
-
-    .work-intro h2,
-    .skills-feature h2,
-    .systems-summary h3 {
-      font-size: var(--type-panel-title);
-      font-weight: 700;
-      line-height: var(--lh-title);
-      letter-spacing: -0.03em;
-    }
-
-    .hero-support,
-    .section-lede,
-    .work-intro p,
-    .skills-feature p,
-    .about-body p,
-    .project-body p,
-    .systems-summary p,
-    .value-step p,
-    .work-card p,
-    .skill-lane p {
-      font-size: var(--type-body);
-      line-height: var(--lh-copy);
-      letter-spacing: 0;
-    }
-
-    .section-lede {
-      font-size: var(--type-body-lg);
-      line-height: var(--lh-relaxed);
-    }
-
-    .work-card h3,
-    .skill-lane h3,
-    .value-step h3,
-    .project-card h3 {
-      font-size: var(--type-card-title);
-      font-weight: 600;
-      line-height: 1.25;
-      letter-spacing: -0.02em;
-    }
-
-    .section-header {
-      max-width: 46rem;
-      margin-bottom: 3rem;
-    }
-
-    .section-header .section-title {
-      max-width: 42rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .section-header .section-lede {
-      max-width: 41rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .hero-statement {
-      max-width: 31rem;
-      line-height: 1.42;
-    }
-
-    .hero-support {
-      max-width: 31rem;
-      line-height: var(--lh-relaxed);
-    }
-
-    .about-body {
-      max-width: 42rem;
-    }
-
-    .about-lead {
-      font-size: 1.2rem;
-      line-height: 1.42;
-      letter-spacing: -0.015em;
-      margin-bottom: 1.15rem;
-    }
-
-    .about-body p {
-      margin-bottom: 0.95rem;
-    }
-
-    .about-facts {
-      grid-template-columns: repeat(auto-fit, minmax(9.5rem, 1fr));
-    }
-
-    .skills-feature p,
-    .systems-summary p,
-    .value-outcome {
-      max-width: 40rem;
-    }
-
-    .work-card,
-    .skill-lane,
-    .project-card,
-    .value-step {
-      font-size: var(--type-body);
-    }
-
-    .work-card p,
-    .skill-lane p,
-    .project-card p,
-    .value-step p {
-      color: var(--ink-soft);
-    }
-
-    .chip,
-    .tag,
-    .fact,
-    .value-tags span,
-    .systems-points li,
-    .proof-list li,
-    .nav-links a,
-    .btn,
-    .project-link {
-      font-family: var(--font-sans);
-      letter-spacing: 0;
-    }
-
-    .tag,
-    .value-tags span {
-      letter-spacing: 0.04em;
-    }
-
-    /* ============================================
-       TYPE CLEANUP: FEWER STYLES, STRONGER RHYTHM
-       ============================================ */
-    :root {
-      --type-eyebrow: 0.72rem;
-      --type-body-sm: 0.9rem;
-      --type-body: 0.98rem;
-      --type-body-lg: 1.06rem;
-      --type-card-title: 1rem;
-      --type-panel-title: clamp(1.45rem, 2.15vw, 1.95rem);
-      --type-section-title: clamp(1.9rem, 2.8vw, 2.45rem);
-      --type-hero-title: clamp(2.45rem, 4.6vw, 3.85rem);
-      --lh-tight: 1.08;
-      --lh-title: 1.14;
-      --lh-copy: 1.64;
-      --lh-relaxed: 1.72;
-    }
-
-    h1,
-    h2,
-    h3,
-    h4,
-    p,
-    a,
-    li,
-    span {
-      font-family: var(--font-sans);
-    }
-
-    h1,
-    h2,
-    h3,
-    h4 {
-      letter-spacing: -0.025em;
-    }
-
-    p {
-      line-height: var(--lh-copy);
-    }
-
-    .section {
-      padding: 5.25rem 0;
-    }
-
-    @media (min-width: 768px) {
-      .section {
-        padding: 6rem 0;
-      }
-    }
-
-    .section-header {
-      max-width: 42rem;
-      margin: 0 auto 2.75rem;
-      text-align: center;
-    }
-
-    .kicker {
-      font-size: var(--type-eyebrow);
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      line-height: 1.2;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-title {
-      font-size: var(--type-hero-title);
-      font-weight: 700;
-      line-height: var(--lh-tight);
-      letter-spacing: -0.04em;
-      margin-bottom: 1.15rem;
-    }
-
-    .section-title {
-      font-size: var(--type-section-title);
-      font-weight: 700;
-      line-height: var(--lh-title);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.85rem;
-    }
-
-    .work-intro h2,
-    .skills-feature h2,
-    .systems-summary h3 {
-      font-size: var(--type-panel-title);
-      font-weight: 700;
-      line-height: var(--lh-title);
-      letter-spacing: -0.025em;
-      margin-bottom: 0.75rem;
-    }
-
-    .hero-statement {
-      font-size: var(--type-body-lg);
-      font-weight: 500;
-      line-height: var(--lh-copy);
-      letter-spacing: 0;
-      max-width: 30rem;
-      margin-bottom: 1rem;
-    }
-
-    .hero-support,
-    .section-lede,
-    .work-intro p,
-    .skills-feature p,
-    .about-body p,
-    .project-body p,
-    .systems-summary p,
-    .value-step p,
-    .work-card p,
-    .skill-lane p,
-    .value-outcome {
-      font-size: var(--type-body);
-      font-weight: 400;
-      line-height: var(--lh-copy);
-      letter-spacing: 0;
-      color: var(--ink-soft);
-    }
-
-    .section-lede {
-      font-size: var(--type-body-lg);
-      line-height: var(--lh-relaxed);
-      max-width: 39rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .about-body {
-      max-width: 44rem;
-    }
-
-    .about-lead,
-    .about-body p {
-      font-size: var(--type-body-lg);
-      font-weight: 400;
-      line-height: var(--lh-relaxed);
-      letter-spacing: 0;
-      color: var(--ink-soft);
-      margin-bottom: 1.15rem;
-    }
-
-    .about-lead {
-      color: var(--body-ink);
-    }
-
-    .work-card h3,
-    .skill-lane h3,
-    .value-step h3,
-    .project-card h3 {
-      font-size: var(--type-card-title);
-      font-weight: 600;
-      line-height: 1.28;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.35rem;
-    }
-
-    .chip,
-    .tag,
-    .fact,
-    .value-tags span,
-    .systems-points li,
-    .proof-list li,
-    .nav-links a,
-    .btn,
-    .project-link {
-      font-size: var(--type-body-sm);
-      font-weight: 600;
-      line-height: 1.25;
-    }
-
-    .tag,
-    .value-tags span {
-      font-size: 0.68rem;
-      letter-spacing: 0.04em;
-    }
-
-    .work-card,
-    .skill-lane,
-    .value-step,
-    .project-card {
-      border-color: var(--line);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .card-icon {
-      width: 2rem;
-      height: 2rem;
-    }
-
-    .card-icon svg {
-      width: 1rem;
-      height: 1rem;
-    }
-
-    /* ============================================
-       FINAL VISUAL BALANCE PASS
-       ============================================ */
-    :root {
-      --ink: #111d13;
-      --ink-soft: #3f5143;
-      --ink-muted: #718075;
-      --title-ink: #2f4934;
-      --body-ink: #34483a;
-      --accent: #415d43;
-      --accent-hover: #304833;
-      --accent-soft: #e9f1e7;
-      --paper: #fbfcf8;
-      --paper-warm: #f3f6ef;
-      --surface: #ffffff;
-      --line: #e2e7df;
-      --line-strong: #cfd8cc;
-      --shadow-sm: 0 1px 2px rgba(17, 29, 19, 0.035);
-      --shadow-md: 0 6px 18px rgba(17, 29, 19, 0.065);
-      --shadow-lg: 0 18px 42px rgba(17, 29, 19, 0.085);
-    }
-
-    body {
-      color: var(--body-ink);
-      background: var(--paper);
-    }
-
-    .hero,
-    #what-i-do,
-    .skills,
-    #projects {
-      background: var(--paper);
-    }
-
-    .value-map,
-    .about {
-      background: var(--paper-warm);
-    }
-
-    .section-header {
-      max-width: 40rem;
-    }
-
-    .section-title {
-      color: var(--title-ink);
-      text-wrap: balance;
-    }
-
-    .section-lede,
-    .hero-support,
-    .work-intro p,
-    .skills-feature p,
-    .about-body p,
-    .project-body p,
-    .value-step p,
-    .work-card p,
-    .skill-lane p,
-    .value-outcome {
-      color: var(--ink-soft);
-    }
-
-    .work-card,
-    .skill-lane,
-    .value-step,
-    .project-card,
-    .skills-feature,
-    .value-outcome {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .work-card,
-    .skill-lane,
-    .value-step {
-      padding: 1.1rem;
-    }
-
-    .project-body {
-      padding: 1.15rem;
-    }
-
-    .work-cards,
-    .skill-lanes,
-    .systems-flow {
-      gap: 0.85rem;
-    }
-
-    .work-card h3,
-    .skill-lane h3,
-    .value-step h3,
-    .project-card h3 {
-      color: var(--title-ink);
-      font-weight: 600;
-    }
-
-    .systems-summary {
-      background: var(--accent);
-      color: rgba(255, 255, 255, 0.82);
-      box-shadow: var(--shadow-md);
-    }
-
-    .systems-summary .kicker {
-      color: #b9d7bd;
-    }
-
-    .systems-summary h3 {
-      color: #ffffff;
-    }
-
-    .systems-summary p {
-      color: rgba(255, 255, 255, 0.76);
-    }
-
-    .systems-points li {
-      color: rgba(255, 255, 255, 0.88);
-      font-weight: 500;
-    }
-
-    .systems-points li::before {
-      background: #b9d7bd;
-    }
-
-    .systems-summary::after {
-      background: rgba(185, 215, 189, 0.18);
-    }
-
-    .card-icon,
-    .value-step::before {
-      background: var(--accent-soft);
-      color: var(--accent);
-    }
-
-    .chip,
-    .tag,
-    .value-tags span,
-    .fact {
-      background: var(--accent-soft);
-      border-color: transparent;
-      color: var(--accent);
-    }
-
-    .btn-primary,
-    .site-footer {
-      background: var(--ink);
-    }
-
-    .hero-image,
-    .about-photo {
-      background: linear-gradient(180deg, #8fb996 0%, #a1cca5 100%);
-    }
-
-    @media (min-width: 900px) {
-      .work-grid,
-      .about-grid {
-        gap: 3.5rem;
-      }
-
-      .systems-map {
-        gap: 1.5rem;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/style.css" />
 </head>
 
 <body>
   <!-- Header -->
   <header class="site-header">
     <div class="container nav">
-      <a href="#home" class="nav-brand">Daniel Bellfield</a>
+      <a href="#home" class="nav-brand text-[0.95rem] font-bold tracking-[-0.01em] text-ink">Daniel Bellfield</a>
 
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#what-i-do">What I Do</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#home" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Home</a></li>
+        <li><a href="#what-i-do" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">What I Do</a></li>
+        <li><a href="#skills" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Skills</a></li>
+        <li><a href="#about" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">About</a></li>
+        <li><a href="#projects" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Projects</a></li>
       </ul>
 
       <div class="nav-social">
@@ -1927,17 +80,17 @@
       <div class="container">
         <div class="hero-grid">
           <div class="hero-content">
-            <p class="kicker fade-up">Web &amp; Email Developer</p>
-            <h1 class="hero-title fade-up delay-1">Daniel<br />Bellfield</h1>
-            <p class="hero-statement fade-up delay-2">
+            <p class="fade-up mb-3 inline-block text-body-sm font-semibold uppercase tracking-[0.12em] text-accent">Web &amp; Email Developer</p>
+            <h1 class="fade-up delay-1 mb-5 text-[clamp(2.55rem,5vw,4rem)] font-bold leading-[1.02] tracking-[-0.035em] text-ink-title">Daniel<br />Bellfield</h1>
+            <p class="fade-up delay-2 mb-4 max-w-[29rem] text-[1.6rem] font-semibold   tracking-[-0.01em] text-ink-body">
               I build the emails, pages, and tools behind digital campaigns.
             </p>
-            <p class="hero-support fade-up delay-3">
-              I bridge marketing and technology through responsive HTML email, campaign landing pages, CMS updates, QA, CRM/ESP production, and practical internal tools.
+            <p class="fade-up delay-3 mb-7 max-w-[31rem] text-[1.2rem]  text-ink-soft">
+              I help campaign teams turn marketing work into launch-ready emails, pages, QA checks, tracking, and internal tools.
             </p>
             <div class="btn-group fade-up delay-4">
-              <a href="#what-i-do" class="btn btn-primary">See Work</a>
-              <a href="#about" class="btn btn-secondary">About Me</a>
+              <a href="#what-i-do" class="btn btn-primary text-body-sm font-semibold leading-tight text-white hover:text-white">See Work</a>
+              <a href="#about" class="btn btn-secondary text-body-sm font-semibold leading-tight text-ink hover:text-ink">About Me</a>
             </div>
           </div>
 
@@ -1955,16 +108,16 @@
       <div class="container">
         <div class="work-grid">
           <div class="work-intro">
-            <p class="kicker">Campaign Production</p>
-            <h2>From request to launch.</h2>
-            <p>
-              I help digital teams turn briefs, designs, platform requirements, and marketing goals into reliable campaign assets.
+            <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Production Support</p>
+            <h2 class="mb-3 text-panel-title font-bold leading-[1.14] tracking-[-0.025em] text-ink-title">From request to launch.</h2>
+            <p class="mb-6 text-body-lg font-medium leading-[1.72] text-ink-body">
+              I help digital teams turn designs, requirements, and marketing goals into reliable launch-ready work.
             </p>
             <ul class="proof-list">
-              <li>Build cleanly</li>
-              <li>Test carefully</li>
-              <li>Launch with context</li>
-              <li>Improve the workflow</li>
+              <li class="text-body-sm font-semibold leading-tight text-ink">Build cleanly</li>
+              <li class="text-body-sm font-semibold leading-tight text-ink">Test carefully</li>
+              <li class="text-body-sm font-semibold leading-tight text-ink">Launch with context</li>
+              <li class="text-body-sm font-semibold leading-tight text-ink">Improve the workflow</li>
             </ul>
           </div>
 
@@ -1976,8 +129,8 @@
                 </svg>
               </div>
               <div>
-                <h3>HTML Email Development</h3>
-                <p>Responsive builds, template edits, personalization support, rendering fixes, and client-aware QA.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">HTML Email Development</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Responsive builds, template edits, personalization support, rendering fixes, and careful QA.</p>
               </div>
             </article>
 
@@ -1988,8 +141,8 @@
                 </svg>
               </div>
               <div>
-                <h3>Web Pages &amp; CMS Updates</h3>
-                <p>Landing pages, donation pages, content blocks, templates, CSS, JavaScript, and CMS upkeep.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Web Pages &amp; CMS Updates</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Landing pages, donation pages, content blocks, templates, CSS, JavaScript, and CMS upkeep.</p>
               </div>
             </article>
 
@@ -2000,8 +153,8 @@
                 </svg>
               </div>
               <div>
-                <h3>Campaign Production</h3>
-                <p>Turning designs and briefs into production-ready assets that fit real deadlines and approval flows.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Campaign Production</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Turning designs and briefs into production-ready work that fits real deadlines and approval flows.</p>
               </div>
             </article>
 
@@ -2012,8 +165,8 @@
                 </svg>
               </div>
               <div>
-                <h3>CRM &amp; ESP Support</h3>
-                <p>Support across Salesforce Marketing Cloud, EveryAction, Mailchimp, Engaging Networks, and CMS tools.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">CRM &amp; ESP Support</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Support across Salesforce Marketing Cloud, EveryAction, Mailchimp, Engaging Networks, and CMS tools.</p>
               </div>
             </article>
 
@@ -2024,8 +177,8 @@
                 </svg>
               </div>
               <div>
-                <h3>QA &amp; Troubleshooting</h3>
-                <p>Rendering checks, links, layouts, personalization, platform behavior, and final content review.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QA &amp; Troubleshooting</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Rendering checks, links, layouts, personalization, platform behavior, and final content review.</p>
               </div>
             </article>
 
@@ -2036,8 +189,8 @@
                 </svg>
               </div>
               <div>
-                <h3>Internal Tools</h3>
-                <p>Lightweight utilities that reduce repetitive work and make useful workflows easier to repeat.</p>
+                <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Internal Tools</h3>
+                <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Lightweight utilities that reduce repetitive work and make useful workflows easier to repeat.</p>
               </div>
             </article>
           </div>
@@ -2049,25 +202,25 @@
     <section class="section value-map" aria-labelledby="value-map-title">
       <div class="container">
         <div class="section-header">
-          <p class="kicker">Campaign Systems Map</p>
-          <h2 id="value-map-title" class="section-title">Where my skills turn into value.</h2>
-          <p class="section-lede">
-            The strongest lane for me is not one isolated task. It is connecting web systems, email builds, platform production, QA, analytics, tools, and AI-assisted workflows into a cleaner campaign process.
+          <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Campaign Systems Map</p>
+          <h2 id="value-map-title" class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">Where my skills turn into value.</h2>
+          <p class="mx-auto max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+            My strongest lane is connecting web systems, email builds, platform production, QA, analytics, tools, and AI-assisted workflows into a cleaner campaign process.
           </p>
         </div>
 
         <div class="systems-map">
           <aside class="systems-summary">
-            <p class="kicker">My lane</p>
-            <h3>Build the work. Understand the system. Improve the next launch.</h3>
-            <p>
-              This is the bridge between marketing and technology: knowing enough about the campaign goal, the platform, and the code to make useful things happen.
+            <!-- <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent-light">My lane</p> -->
+            <h3 class="relative mb-3 text-panel-title font-bold leading-[1.14] tracking-[-0.025em] text-white">I build the work, understand the system, and improve the next launch.</h3>
+            <p class="relative max-w-[26rem] text-body font-normal leading-[1.64] tracking-normal text-white/75">
+              I work between marketing and technology: close enough to the campaign goal, the platform, and the code to make useful things happen.
             </p>
             <ul class="systems-points" aria-label="Campaign value points">
-              <li>Fewer manual production steps</li>
-              <li>Cleaner handoffs between tools</li>
-              <li>Better testing before launch</li>
-              <li>Smarter use of AI and automation</li>
+              <li class="text-body-sm font-semibold leading-tight text-white/90">Fewer manual production steps</li>
+              <li class="text-body-sm font-semibold leading-tight text-white/90">Cleaner handoffs between tools</li>
+              <li class="text-body-sm font-semibold leading-tight text-white/90">Better testing before launch</li>
+              <li class="text-body-sm font-semibold leading-tight text-white/90">Smarter use of AI and automation</li>
             </ul>
           </aside>
 
@@ -2075,66 +228,66 @@
             <div class="systems-flow">
               <article class="value-step">
                 <div>
-                  <h3>Web administration sets the foundation</h3>
-                  <p>Manage CMS content, page updates, forms, donation or signup destinations, and the web details a campaign depends on.</p>
+                  <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Web administration sets the foundation</h3>
+                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Manage CMS content, page updates, forms, donation or signup destinations, and the web details a campaign depends on.</p>
                   <div class="value-tags">
-                    <span>CMS</span>
-                    <span>Web admin</span>
-                    <span>Landing pages</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">CMS</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Web admin</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Landing pages</span>
                   </div>
                 </div>
               </article>
 
               <article class="value-step">
                 <div>
-                  <h3>Email development turns ideas into campaign assets</h3>
-                  <p>Build responsive emails, edit templates, implement creative direction, support personalization, and prepare assets for real platform constraints.</p>
+                  <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Email development turns ideas into campaign work</h3>
+                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Build responsive emails, edit templates, implement creative direction, support personalization, and prepare assets for real platform constraints.</p>
                   <div class="value-tags">
-                    <span>Email dev</span>
-                    <span>HTML/CSS</span>
-                    <span>Templates</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Email dev</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">HTML/CSS</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Templates</span>
                   </div>
                 </div>
               </article>
 
               <article class="value-step">
                 <div>
-                  <h3>Platform production connects the funnel</h3>
-                  <p>Work across CRM, ESP, CMS, and fundraising systems so audiences, links, pages, forms, and campaign logic support the intended user journey.</p>
+                  <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Platform production connects the funnel</h3>
+                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Work across CRM, ESP, CMS, and fundraising systems so audiences, links, pages, forms, and campaign logic support the intended user journey.</p>
                   <div class="value-tags">
-                    <span>CRM/ESP</span>
-                    <span>Funnels</span>
-                    <span>Personalization</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">CRM/ESP</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Funnels</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Personalization</span>
                   </div>
                 </div>
               </article>
 
               <article class="value-step">
                 <div>
-                  <h3>QA and analytics protect the launch</h3>
-                  <p>Test rendering, links, layouts, content, tracking, and platform behavior so the team can launch with fewer surprises and better visibility.</p>
+                  <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QA and analytics protect the launch</h3>
+                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Test rendering, links, layouts, content, tracking, and platform behavior so the team can launch with fewer surprises and better visibility.</p>
                   <div class="value-tags">
-                    <span>QA</span>
-                    <span>GA4</span>
-                    <span>Launch review</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">QA</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">GA4</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Launch review</span>
                   </div>
                 </div>
               </article>
 
               <article class="value-step">
                 <div>
-                  <h3>Internal tools and AI make the work repeatable</h3>
-                  <p>Use documentation, code, lightweight utilities, and AI-assisted workflows to reduce click-work, speed up production, and improve the next version.</p>
+                  <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Internal tools and AI make the work repeatable</h3>
+                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Use documentation, code, lightweight utilities, and AI-assisted workflows to reduce click-work, speed up production, and improve the next version.</p>
                   <div class="value-tags">
-                    <span>Internal tools</span>
-                    <span>AI workflows</span>
-                    <span>Process</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Internal tools</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">AI workflows</span>
+                    <span class="inline-flex rounded-full bg-accent-soft px-[0.55rem] py-[0.26rem] text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Process</span>
                   </div>
                 </div>
               </article>
             </div>
 
-            <p class="value-outcome">
+            <p class="value-outcome text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
               The value is strategic orchestration at a practical level: understanding the work well enough to guide the tools, connect the systems, and solve real production problems.
             </p>
           </div>
@@ -2147,26 +300,26 @@
       <div class="container">
         <div class="skills-feature">
           <div>
-            <p class="kicker">Skills &amp; Tools</p>
-            <h2>Tools I reach for.</h2>
-            <p>
-              A practical toolkit for building campaign assets, working inside existing systems, using AI with judgment, and catching issues before launch.
+            <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Skills &amp; Tools</p>
+            <h2 class="mb-3 text-panel-title font-bold leading-[1.14] tracking-[-0.025em] text-ink-title">Tools I reach for.</h2>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
+              A practical toolkit for building campaign work, adapting inside existing systems, using AI with judgment, and catching issues before launch.
             </p>
           </div>
           <div class="tool-cloud">
-            <span class="chip">HTML</span>
-            <span class="chip">CSS</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">PHP</span>
-            <span class="chip">Laravel</span>
-            <span class="chip">WordPress</span>
-            <span class="chip">Salesforce MC</span>
-            <span class="chip">EveryAction</span>
-            <span class="chip">Mailchimp</span>
-            <span class="chip">Engaging Networks</span>
-            <span class="chip">Email on Acid</span>
-            <span class="chip">GA4</span>
-            <span class="chip">AI-assisted workflows</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">HTML</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">CSS</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">JavaScript</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">PHP</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">Laravel</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">WordPress</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">Salesforce MC</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">EveryAction</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">Mailchimp</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">Engaging Networks</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">Email on Acid</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">GA4</span>
+            <span class="chip text-body-sm font-semibold leading-tight text-accent">AI-assisted workflows</span>
           </div>
         </div>
 
@@ -2178,9 +331,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
-              <h3>Email Development</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Email Development</h3>
             </div>
-            <p>Responsive HTML emails, modular templates, personalization support, and client-specific fixes.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Responsive HTML emails, modular templates, personalization support, and client-specific fixes.</p>
           </article>
 
           <article class="skill-lane">
@@ -2190,9 +343,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l3 3-3 3m5 0h3M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z" />
                 </svg>
               </div>
-              <h3>Front-End Builds</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Front-End Builds</h3>
             </div>
-            <p>HTML, CSS, JavaScript, responsive layouts, content blocks, and template edits.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">HTML, CSS, JavaScript, responsive layouts, content blocks, and template edits.</p>
           </article>
 
           <article class="skill-lane">
@@ -2202,9 +355,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7" />
                 </svg>
               </div>
-              <h3>Platform Production</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Platform Production</h3>
             </div>
-            <p>CRM, ESP, CMS, and fundraising-platform production across the systems teams already use.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">CRM, ESP, CMS, and fundraising-platform production across the systems teams already use.</p>
           </article>
 
           <article class="skill-lane">
@@ -2214,9 +367,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5-2v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V8l8-4 8 4z" />
                 </svg>
               </div>
-              <h3>Testing &amp; QA</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Testing &amp; QA</h3>
             </div>
-            <p>Email on Acid checks, browser review, link testing, content review, and launch readiness.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Email on Acid checks, browser review, link testing, content review, and launch readiness.</p>
           </article>
 
           <article class="skill-lane">
@@ -2226,9 +379,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M4 19V5m0 14h16M8 15l3-3 3 2 5-7" />
                 </svg>
               </div>
-              <h3>Analytics &amp; Tracking</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Analytics &amp; Tracking</h3>
             </div>
-            <p>GA4, event tracking, attribution links, conversion paths, and reporting support.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">GA4, event tracking, attribution links, conversion paths, and reporting support.</p>
           </article>
 
           <article class="skill-lane">
@@ -2238,9 +391,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 16v-2m6-6h2M4 12h2m10.243-4.243l1.414-1.414M6.343 17.657l1.414-1.414m8.486 0l1.414 1.414M6.343 6.343l1.414 1.414M12 9a3 3 0 100 6 3 3 0 000-6z" />
                 </svg>
               </div>
-              <h3>Internal Tools</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Internal Tools</h3>
             </div>
-            <p>PHP, Laravel, forms, databases, server-hosted utilities, AI-assisted prototyping, and workflow automation.</p>
+            <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">PHP, Laravel, forms, databases, server-hosted utilities, AI-assisted prototyping, and workflow automation.</p>
           </article>
         </div>
       </div>
@@ -2250,10 +403,10 @@
     <section id="about" class="section about">
       <div class="container">
         <div class="section-header">
-          <p class="kicker">About</p>
-          <h2 class="section-title">Practical support, calmly delivered.</h2>
-          <p class="section-lede">
-            Development help for the middle of digital production — where marketing goals, platforms, and implementation details meet.
+          <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">About</p>
+          <h2 class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">Practical support, calmly delivered.</h2>
+          <p class="mx-auto max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+            I help in the middle of digital production, where marketing goals, platforms, and implementation details meet.
           </p>
         </div>
 
@@ -2263,36 +416,36 @@
           </div>
 
           <div class="about-body">
-            <p class="about-lead">
+            <p class="mb-[1.15rem] text-body-lg font-normal leading-[1.72] tracking-normal text-ink-body">
               Hi, I'm Daniel — a web and email developer based in California.
             </p>
 
-            <p>
+            <p class="mb-[1.15rem] text-body-lg font-normal leading-[1.72] tracking-normal text-ink-soft">
               Since 2022, I've worked on the production side of digital campaigns: emails, landing pages, CMS updates, QA, platform setup, and the small fixes that keep launches moving.
             </p>
 
-            <p>
+            <p class="mb-[1.15rem] text-body-lg font-normal leading-[1.72] tracking-normal text-ink-soft">
               I like the practical part of development: learning the system, finding the existing pattern, asking the useful question, building cleanly, testing the details, and leaving the next version easier to handle.
             </p>
 
-            <p>
-              I use AI the same way I use any production tool: with context, review, and a real understanding of the work. The value is not asking AI to guess the job; it is knowing the campaign problem well enough to guide the tool toward something useful.
+            <p class="mb-[1.15rem] text-body-lg font-normal leading-[1.72] tracking-normal text-ink-soft">
+              I use AI with context, review, and judgment. The value is knowing the campaign problem well enough to guide the tool toward something useful.
             </p>
 
-            <p>
+            <p class="mb-[1.15rem] text-body-lg font-normal leading-[1.72] tracking-normal text-ink-soft">
               Outside of work, I build projects like
               <a href="https://emailclarity.netlify.app" target="_blank" rel="noopener">EmailClarity</a>
               and Portfolio-Up to keep sharpening my thinking around email, analytics, web development, and internal tools.
             </p>
 
             <div class="about-facts">
-              <span class="fact">Campaign production</span>
-              <span class="fact">AI-assisted workflow</span>
-              <span class="fact">California based</span>
-              <span class="fact">Working since 2022</span>
+              <span class="fact text-body-sm font-semibold leading-tight text-accent">Campaign production</span>
+              <span class="fact text-body-sm font-semibold leading-tight text-accent">AI-assisted workflow</span>
+              <span class="fact text-body-sm font-semibold leading-tight text-accent">California based</span>
+              <span class="fact text-body-sm font-semibold leading-tight text-accent">Working since 2022</span>
             </div>
 
-            <a href="https://www.linkedin.com/in/danielbellfield-dev" target="_blank" rel="noopener" class="btn btn-primary">
+            <a href="https://www.linkedin.com/in/danielbellfield-dev" target="_blank" rel="noopener" class="btn btn-primary text-body-sm font-semibold leading-tight text-white hover:text-white">
               Connect on LinkedIn
               <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -2307,9 +460,9 @@
     <section id="projects" class="section">
       <div class="container">
         <div class="section-header">
-          <p class="kicker">Selected Work</p>
-          <h2 class="section-title">Projects</h2>
-          <p class="section-lede">
+          <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Selected Work</p>
+          <h2 class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">Projects</h2>
+          <p class="mx-auto max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
             Work that shows product thinking, campaign awareness, and practical tooling.
           </p>
         </div>
@@ -2321,14 +474,14 @@
             </div>
             <div class="project-body">
               <div class="project-tags">
-                <span class="tag">Laravel</span>
-                <span class="tag">Product</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Laravel</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Product</span>
               </div>
-              <h3>Portfolio-Up</h3>
-              <p>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Portfolio-Up</h3>
+              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
                 A no-code portfolio builder that turns profile details, work history, skills, and images into a mobile-friendly personal site.
               </p>
-              <span class="project-link">
+              <span class="project-link text-body-sm font-semibold leading-tight text-accent">
                 View Project
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -2343,14 +496,14 @@
             </div>
             <div class="project-body">
               <div class="project-tags">
-                <span class="tag">Email</span>
-                <span class="tag">GA4</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Email</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">GA4</span>
               </div>
-              <h3>EmailClarity</h3>
-              <p>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">EmailClarity</h3>
+              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
                 A focused concept for email audits, automation review, custom email coding, and GA4 tracking tied to real outcomes.
               </p>
-              <span class="project-link">
+              <span class="project-link text-body-sm font-semibold leading-tight text-accent">
                 View Project
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -2388,14 +541,14 @@
             </div>
             <div class="project-body">
               <div class="project-tags">
-                <span class="tag">Internal</span>
-                <span class="tag">Cost Reduction</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Internal</span>
+                <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Cost Reduction</span>
               </div>
-              <h3>QR Code Generator</h3>
-              <p>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QR Code Generator</h3>
+              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
                 A simple internal utility built to replace a paid QR platform, reduce recurring costs, and remove usage-limit friction.
               </p>
-              <span class="project-link muted">Internal Work</span>
+              <span class="project-link muted text-body-sm font-semibold leading-tight text-ink-muted">Workflow Tool</span>
             </div>
           </article>
         </div>
@@ -2408,16 +561,16 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p>Daniel Bellfield</p>
-          <p>Web &amp; Email Developer for digital campaign teams.</p>
+          <p class="mb-1 text-[1.05rem] font-semibold text-white">Daniel Bellfield</p>
+          <p class="text-[0.875rem] text-white/55">Web &amp; Email Developer for digital campaign teams.</p>
         </div>
 
         <nav class="footer-nav">
-          <a href="#home">Home</a>
-          <a href="#what-i-do">What I Do</a>
-          <a href="#skills">Skills</a>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
+          <a href="#home" class="text-[0.9rem] text-white/70 hover:text-white">Home</a>
+          <a href="#what-i-do" class="text-[0.9rem] text-white/70 hover:text-white">What I Do</a>
+          <a href="#skills" class="text-[0.9rem] text-white/70 hover:text-white">Skills</a>
+          <a href="#about" class="text-[0.9rem] text-white/70 hover:text-white">About</a>
+          <a href="#projects" class="text-[0.9rem] text-white/70 hover:text-white">Projects</a>
         </nav>
 
         <div class="footer-social">
@@ -2439,7 +592,7 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom text-center text-[0.85rem] text-white/40">
         &copy; 2026 Daniel Bellfield. All rights reserved.
       </div>
     </div>
