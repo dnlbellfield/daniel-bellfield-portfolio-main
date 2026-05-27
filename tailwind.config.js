@@ -5,30 +5,30 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#111d13",
-          soft: "#3f5143",
-          muted: "#718075",
-          title: "#2f4934",
-          body: "#34483a"
+          DEFAULT: "#162033",
+          soft: "#425066",
+          muted: "#758195",
+          title: "#1b2a41",
+          body: "#334155"
         },
         paper: {
-          DEFAULT: "#fbfcf8",
-          warm: "#f3f6ef"
+          DEFAULT: "#fbfcff",
+          warm: "#eef4fb"
         },
         surface: "#ffffff",
         line: {
-          DEFAULT: "#e2e7df",
-          strong: "#cfd8cc"
+          DEFAULT: "#dde5ef",
+          strong: "#c7d3e2"
         },
         accent: {
-          DEFAULT: "#415d43",
-          hover: "#304833",
-          soft: "#e9f1e7",
-          light: "#b9d7bd"
+          DEFAULT: "#2f6fed",
+          hover: "#2458c4",
+          soft: "#e8f0ff",
+          light: "#96c5fb"
         },
         portrait: {
-          top: "#8fb996",
-          bottom: "#a1cca5"
+          top: "#60a5fa",
+          bottom: "#93c5fd"
         }
       },
       fontFamily: {
@@ -50,9 +50,9 @@ module.exports = {
         lg: "1rem"
       },
       boxShadow: {
-        sm: "0 1px 2px rgba(17, 29, 19, 0.035)",
-        md: "0 6px 18px rgba(17, 29, 19, 0.065)",
-        lg: "0 18px 42px rgba(17, 29, 19, 0.085)"
+        sm: "0 1px 2px rgba(22, 32, 51, 0.035)",
+        md: "0 6px 18px rgba(22, 32, 51, 0.065)",
+        lg: "0 18px 42px rgba(22, 32, 51, 0.085)"
       },
       keyframes: {
         fadeUp: {

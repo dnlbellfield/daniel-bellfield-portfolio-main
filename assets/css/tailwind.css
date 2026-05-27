@@ -100,7 +100,7 @@
 
   .hero-image::after {
     content: "";
-    @apply pointer-events-none absolute inset-0 rounded-lg shadow-[inset_0_0_0_1px_rgba(65,93,67,0.16)];
+    @apply pointer-events-none absolute inset-0 rounded-lg shadow-[inset_0_0_0_1px_rgba(47,111,237,0.16)];
   }
 
   .hero-image img,
@@ -341,7 +341,7 @@
   }
 
   .site-footer {
-    @apply bg-ink py-8 md:pt-14;
+    @apply bg-[#0b1020] py-8 md:pt-14;
   }
 
   .footer-grid {
