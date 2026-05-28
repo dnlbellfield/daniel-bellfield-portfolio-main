@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@property --portrait-top {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #60a5fa;
+}
+
+@property --portrait-bottom {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: red;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
@@ -77,25 +89,86 @@
     @apply mx-auto mb-11 max-w-2xl text-center;
   }
 
+  .intro-story,
   .hero {
-    @apply bg-paper py-12 sm:py-14 md:py-20;
+    @apply bg-paper;
+  }
+
+  .intro-story-grid {
+    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:py-0;
+  }
+
+  .intro-hero {
+    @apply flex flex-col justify-center min-[900px]:min-h-[calc(100vh-4rem)] min-[900px]:py-8;
+  }
+
+  .sticky-portrait {
+    @apply min-[900px]:sticky min-[900px]:top-24 min-[900px]:self-start min-[900px]:py-8;
+  }
+
+  .about-panel {
+    @apply scroll-mt-20 pb-12 pt-4 text-left sm:pb-14 min-[900px]:pb-24 min-[900px]:pt-8;
+  }
+
+  .about-kicker {
+    @apply mb-3 inline-block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
+  }
+
+  .about-title {
+    @apply mb-4 max-w-[36rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title;
+  }
+
+  .about-intro {
+    @apply mb-10 max-w-[34rem] text-body-lg leading-[1.72] text-ink-soft;
+  }
+
+  .hero {
+    @apply py-10 sm:py-14 md:py-16;
   }
 
   .hero-grid {
-    @apply grid grid-cols-1 items-center gap-10 min-[900px]:grid-cols-[0.95fr_0.9fr] min-[900px]:gap-12 min-[900px]:py-4;
+    @apply grid grid-cols-1 items-center gap-8 min-[900px]:min-h-[calc(100vh-4rem)] min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:py-8;
   }
 
   .hero-content {
-    @apply max-w-[35rem] min-[900px]:pt-2;
+    @apply max-w-[34rem] min-[900px]:pt-0;
+  }
+
+  .hero-eyebrow {
+    @apply mb-4 inline-block text-[0.8rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
+  }
+
+  .hero-title {
+    @apply mb-[1.4rem] text-[clamp(3rem,13vw,4.25rem)] font-bold leading-none tracking-[-0.025em] text-ink-title min-[900px]:text-[clamp(3rem,6vw,4.25rem)];
+  }
+
+  .hero-lede {
+    @apply mb-[0.9rem] max-w-[31rem] text-[clamp(1.35rem,5vw,1.65rem)] font-semibold leading-[1.28] tracking-normal text-ink-body min-[900px]:text-[clamp(1.35rem,2.2vw,1.65rem)];
+  }
+
+  .hero-subcopy {
+    @apply mb-9 max-w-[30rem] text-[1.02rem] leading-[1.55] text-ink-soft sm:text-[1.08rem];
   }
 
   .hero-image,
   .about-photo {
     @apply overflow-hidden rounded-lg bg-gradient-to-b from-portrait-top to-portrait-bottom shadow-lg;
+    --portrait-top: #60a5fa;
+    --portrait-bottom: #93c5fd;
+    background-image: linear-gradient(to bottom, var(--portrait-top), var(--portrait-bottom));
+    transition:
+      --portrait-top 260ms ease,
+      --portrait-bottom 260ms ease,
+      box-shadow 260ms ease;
+  }
+
+  body.about-portrait-light .hero-image {
+    --portrait-top: #93c5fd;
+    --portrait-bottom: #dbeafe;
   }
 
   .hero-image {
-    @apply relative mx-auto aspect-[4/5] w-full max-w-[28rem] min-[900px]:max-w-[31rem];
+    @apply relative mx-auto aspect-[4/5] w-full max-w-[24rem] min-[900px]:max-w-[30rem];
   }
 
   .hero-image::after {
@@ -110,6 +183,13 @@
 
   .hero-image img {
     @apply object-top;
+  }
+
+  @media (min-width: 900px) {
+    .sticky-portrait {
+      grid-column: 2;
+      grid-row: 1 / span 2;
+    }
   }
 
   .btn-group {
@@ -183,7 +263,7 @@
   }
 
   .systems-map {
-    @apply grid grid-cols-1 gap-5 min-[960px]:grid-cols-[0.78fr_1.22fr] min-[960px]:items-start min-[960px]:gap-6;
+    @apply mx-auto grid max-w-[48rem] grid-cols-1 gap-5;
   }
 
   .systems-summary {
