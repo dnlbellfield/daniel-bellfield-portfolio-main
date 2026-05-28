@@ -263,7 +263,23 @@
   }
 
   .systems-map {
-    @apply mx-auto grid max-w-[48rem] grid-cols-1 gap-5;
+    @apply mx-auto grid max-w-[68rem] grid-cols-1 gap-8 min-[960px]:grid-cols-[0.86fr_1.14fr] min-[960px]:items-start min-[960px]:gap-12;
+  }
+
+  .workflow-tools {
+    @apply rounded-lg border border-line bg-surface p-6 shadow-sm min-[960px]:sticky min-[960px]:top-24 min-[960px]:p-7;
+  }
+
+  .workflow-tool-groups {
+    @apply grid gap-5;
+  }
+
+  .workflow-tool-group {
+    @apply border-t border-line pt-4;
+  }
+
+  .workflow-tool-label {
+    @apply mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted;
   }
 
   .systems-summary {
@@ -289,51 +305,67 @@
 
   .systems-flow {
     counter-reset: valueStep;
+    --flow-progress: 0;
+    @apply relative grid gap-0;
+  }
+
+  .systems-flow::before,
+  .systems-flow::after {
+    content: "";
+    @apply absolute left-[1.18rem] top-[1.3rem] hidden w-px min-[720px]:block;
+    height: calc(100% - 2.6rem);
+  }
+
+  .systems-flow::before {
+    @apply bg-line-strong;
+  }
+
+  .systems-flow::after {
+    background: linear-gradient(to bottom, #2f6fed, #96c5fb);
+    transform: scaleY(var(--flow-progress));
+    transform-origin: top;
+    transition: transform 180ms ease-out;
   }
 
   .value-step {
     counter-increment: valueStep;
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
     --lift: 0px;
-    @apply relative grid grid-cols-[auto_1fr] gap-4 overflow-hidden rounded-md border border-line bg-surface p-[1.1rem] shadow-sm min-[960px]:px-[1.35rem] min-[960px]:py-[1.2rem];
-    transform: perspective(1000px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(var(--lift));
-    transform-style: preserve-3d;
+    @apply relative grid grid-cols-[auto_1fr] gap-4 border-b border-line bg-transparent py-7 min-[720px]:border-b-0 min-[960px]:py-8;
+    transform: translateY(var(--lift));
     transition:
-      border-color 320ms ease,
-      box-shadow 320ms ease,
-      background-color 320ms ease,
-      transform 180ms ease-out;
+      opacity 320ms ease,
+      transform 320ms ease,
+      color 320ms ease;
   }
 
   .value-step.is-active {
-    @apply border-line-strong shadow-md;
-    --lift: -2px;
+    --lift: -1px;
   }
 
   .value-step::before {
     content: counter(valueStep, decimal-leading-zero);
-    @apply relative z-[1] inline-flex h-[2.35rem] w-[2.35rem] items-center justify-center rounded-full bg-accent-soft text-[0.78rem] font-bold text-accent;
-    box-shadow: 0 0 0 0 rgba(47, 111, 237, 0.18);
-    transform: translateZ(18px);
+    @apply relative z-[1] inline-flex h-[2.35rem] w-[2.35rem] items-center justify-center rounded-full border border-line bg-paper-warm text-[0.78rem] font-bold text-accent;
+    box-shadow: 0 0 0 6px #eef4fb;
     transition:
       background-color 320ms ease,
+      border-color 320ms ease,
       color 320ms ease,
-      box-shadow 320ms ease;
+      box-shadow 320ms ease,
+      transform 320ms ease;
   }
 
   .value-step.is-active::before {
-    animation: stepPulse 2200ms ease-out infinite;
+    @apply border-accent bg-accent text-white;
+    box-shadow: 0 0 0 6px #eef4fb, 0 10px 24px rgba(47, 111, 237, 0.18);
+    transform: scale(1.04);
   }
 
-  .value-step:not(:last-child)::after {
-    content: "";
-    @apply hidden min-[960px]:absolute min-[960px]:bottom-[-1rem] min-[960px]:left-[2.32rem] min-[960px]:top-[3.65rem] min-[960px]:block min-[960px]:w-px min-[960px]:bg-line-strong;
+  .value-step h3 {
+    @apply transition-colors duration-200;
   }
 
-  .value-step.is-active:not(:last-child)::after {
-    background: linear-gradient(to bottom, #2f6fed, #c7d3e2 55%, #c7d3e2);
-    animation: connectorFlow 1400ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  .value-step.is-active h3 {
+    @apply text-accent;
   }
 
   .value-tags,
@@ -495,34 +527,6 @@
   }
 }
 
-@keyframes stepPulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(47, 111, 237, 0.18);
-  }
-
-  58% {
-    box-shadow: 0 0 0 10px rgba(47, 111, 237, 0);
-  }
-
-  100% {
-    box-shadow: 0 0 0 10px rgba(47, 111, 237, 0);
-  }
-}
-
-@keyframes connectorFlow {
-  0% {
-    opacity: 0.45;
-    transform: scaleY(0.18);
-    transform-origin: top;
-  }
-
-  100% {
-    opacity: 0.9;
-    transform: scaleY(1);
-    transform-origin: top;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -535,7 +539,8 @@
     scroll-behavior: auto;
   }
 
-  .value-step {
+  .value-step,
+  .systems-flow::after {
     transform: none !important;
   }
 }
