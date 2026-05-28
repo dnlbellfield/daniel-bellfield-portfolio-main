@@ -421,7 +421,7 @@
   }
 
   .site-footer {
-    @apply bg-[#0b1020] py-8 md:pt-14;
+    @apply bg-black py-8 md:pt-14;
   }
 
   .footer-grid {
