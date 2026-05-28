@@ -244,7 +244,7 @@
         <div class="systems-map">
           <div>
             <div class="systems-flow">
-              <article class="value-step">
+              <article class="value-step" data-pipeline-step="0">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Web administration</h3>
                   <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Update CMS content, edit pages, fix forms, and set donation or signup destinations.<br /><em>Site ready for traffic.</em></p>
@@ -256,7 +256,7 @@
                 </div>
               </article>
 
-              <article class="value-step">
+              <article class="value-step" data-pipeline-step="1">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Email development</h3>
                   <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Build responsive emails, edit templates, apply creative direction, and prepare files for personalization and platform constraints.<br /><em>Creative becomes sendable.</em></p>
@@ -268,7 +268,7 @@
                 </div>
               </article>
 
-              <article class="value-step">
+              <article class="value-step" data-pipeline-step="2">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Platform production</h3>
                   <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Connect CRM, ESP, CMS, and fundraising tools. Set up audiences, data extensions, links, pages, and forms.<br /><em>Systems line up.</em></p>
@@ -280,7 +280,7 @@
                 </div>
               </article>
 
-              <article class="value-step">
+              <article class="value-step" data-pipeline-step="3">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QA and analytics</h3>
                   <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Test rendering, links, layout, content, tracking, and platform behavior before launch.<br /><em>Fewer surprises at send.</em></p>
@@ -292,7 +292,7 @@
                 </div>
               </article>
 
-              <article class="value-step">
+              <article class="value-step" data-pipeline-step="4">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Internal tools and AI</h3>
                   <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Build documentation, small utilities, and AI-assisted workflows for repeat tasks.<br /><em>The team moves faster next time.</em></p>
@@ -578,6 +578,87 @@
           window.scrollTo({ top, behavior: "smooth" });
         });
       });
+    });
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = [...document.querySelectorAll("[data-pipeline-step]")];
+      if (!cards.length) return;
+
+      const setActiveStep = (step) => {
+        cards.forEach((card, index) => {
+          card.classList.toggle("is-active", index === Number(step));
+        });
+      };
+
+      cards.forEach((card) => {
+        const tilt = {
+          currentX: 0,
+          currentY: 0,
+          targetX: 0,
+          targetY: 0,
+          frame: null,
+        };
+
+        const updateTilt = () => {
+          tilt.currentX += (tilt.targetX - tilt.currentX) * 0.14;
+          tilt.currentY += (tilt.targetY - tilt.currentY) * 0.14;
+          card.style.setProperty("--tilt-x", `${tilt.currentX.toFixed(3)}deg`);
+          card.style.setProperty("--tilt-y", `${tilt.currentY.toFixed(3)}deg`);
+
+          const isSettled =
+            Math.abs(tilt.targetX - tilt.currentX) < 0.01 &&
+            Math.abs(tilt.targetY - tilt.currentY) < 0.01;
+
+          if (isSettled) {
+            tilt.currentX = tilt.targetX;
+            tilt.currentY = tilt.targetY;
+            card.style.setProperty("--tilt-x", `${tilt.currentX.toFixed(3)}deg`);
+            card.style.setProperty("--tilt-y", `${tilt.currentY.toFixed(3)}deg`);
+            tilt.frame = null;
+            return;
+          }
+
+          tilt.frame = requestAnimationFrame(updateTilt);
+        };
+
+        const startTilt = () => {
+          if (!tilt.frame) {
+            tilt.frame = requestAnimationFrame(updateTilt);
+          }
+        };
+
+        card.addEventListener("pointerenter", () => setActiveStep(card.dataset.pipelineStep));
+        card.addEventListener("focusin", () => setActiveStep(card.dataset.pipelineStep));
+
+        card.addEventListener("pointermove", (event) => {
+          const rect = card.getBoundingClientRect();
+          const x = (event.clientX - rect.left) / rect.width - 0.5;
+          const y = (event.clientY - rect.top) / rect.height - 0.5;
+          tilt.targetX = y * -2.2;
+          tilt.targetY = x * 2.8;
+          startTilt();
+        });
+
+        card.addEventListener("pointerleave", () => {
+          tilt.targetX = 0;
+          tilt.targetY = 0;
+          startTilt();
+        });
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setActiveStep(visible.target.dataset.pipelineStep);
+        },
+        { threshold: [0.45, 0.6, 0.75] }
+      );
+
+      cards.forEach((card) => observer.observe(card));
+      setActiveStep(0);
     });
   </script>
 </body>
