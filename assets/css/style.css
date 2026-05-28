@@ -935,7 +935,7 @@ section {
 
 .hero-title {
   margin-bottom: 1.4rem;
-  font-size: clamp(3rem, 13vw, 4.25rem);
+  font-size: clamp(2.7rem, 11.7vw, 3.825rem);
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.025em;
@@ -945,14 +945,14 @@ section {
 
 @media (min-width: 900px) {
   .hero-title {
-    font-size: clamp(3rem, 6vw, 4.25rem);
+    font-size: clamp(2.7rem, 5.4vw, 3.825rem);
   }
 }
 
 .hero-lede {
   margin-bottom: 0.9rem;
   max-width: 31rem;
-  font-size: clamp(1.35rem, 5vw, 1.65rem);
+  font-size: clamp(1.215rem, 4.5vw, 1.485rem);
   font-weight: 600;
   line-height: 1.28;
   letter-spacing: 0em;
@@ -962,7 +962,7 @@ section {
 
 @media (min-width: 900px) {
   .hero-lede {
-    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+    font-size: clamp(1.215rem, 1.98vw, 1.485rem);
   }
 }
 
@@ -2386,12 +2386,12 @@ body.about-portrait-light .hero-image {
   font-size: 1.05rem;
 }
 
-.text-\[clamp\(1\.35rem\2c 5vw\2c 1\.65rem\)\] {
-  font-size: clamp(1.35rem, 5vw, 1.65rem);
+.text-\[clamp\(1\.215rem\2c 4\.5vw\2c 1\.485rem\)\] {
+  font-size: clamp(1.215rem, 4.5vw, 1.485rem);
 }
 
-.text-\[clamp\(3rem\2c 13vw\2c 4\.25rem\)\] {
-  font-size: clamp(3rem, 13vw, 4.25rem);
+.text-\[clamp\(2\.7rem\2c 11\.7vw\2c 3\.825rem\)\] {
+  font-size: clamp(2.7rem, 11.7vw, 3.825rem);
 }
 
 .text-body {
@@ -2754,12 +2754,12 @@ body.about-portrait-light .hero-image {
     padding-bottom: 6rem;
   }
 
-  .min-\[900px\]\:text-\[clamp\(1\.35rem\2c 2\.2vw\2c 1\.65rem\)\] {
-    font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+  .min-\[900px\]\:text-\[clamp\(1\.215rem\2c 1\.98vw\2c 1\.485rem\)\] {
+    font-size: clamp(1.215rem, 1.98vw, 1.485rem);
   }
 
-  .min-\[900px\]\:text-\[clamp\(3rem\2c 6vw\2c 4\.25rem\)\] {
-    font-size: clamp(3rem, 6vw, 4.25rem);
+  .min-\[900px\]\:text-\[clamp\(2\.7rem\2c 5\.4vw\2c 3\.825rem\)\] {
+    font-size: clamp(2.7rem, 5.4vw, 3.825rem);
   }
 }
 

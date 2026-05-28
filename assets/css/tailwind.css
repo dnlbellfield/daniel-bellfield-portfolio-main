@@ -139,11 +139,11 @@
   }
 
   .hero-title {
-    @apply mb-[1.4rem] text-[clamp(3rem,13vw,4.25rem)] font-bold leading-none tracking-[-0.025em] text-ink-title min-[900px]:text-[clamp(3rem,6vw,4.25rem)];
+    @apply mb-[1.4rem] text-[clamp(2.7rem,11.7vw,3.825rem)] font-bold leading-none tracking-[-0.025em] text-ink-title min-[900px]:text-[clamp(2.7rem,5.4vw,3.825rem)];
   }
 
   .hero-lede {
-    @apply mb-[0.9rem] max-w-[31rem] text-[clamp(1.35rem,5vw,1.65rem)] font-semibold leading-[1.28] tracking-normal text-ink-body min-[900px]:text-[clamp(1.35rem,2.2vw,1.65rem)];
+    @apply mb-[0.9rem] max-w-[31rem] text-[clamp(1.215rem,4.5vw,1.485rem)] font-semibold leading-[1.28] tracking-normal text-ink-body min-[900px]:text-[clamp(1.215rem,1.98vw,1.485rem)];
   }
 
   .hero-subcopy {
