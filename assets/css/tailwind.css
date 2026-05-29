@@ -16,13 +16,11 @@
 
 @layer base {
   html {
-    @apply scroll-smooth bg-paper;
-    overflow-x: clip;
+    @apply scroll-smooth;
   }
 
   body {
     @apply m-0 bg-paper font-sans text-body font-normal text-ink-body antialiased;
-    overflow-x: clip;
   }
 
   img {
@@ -105,7 +103,7 @@
   }
 
   .sticky-portrait {
-    @apply min-[900px]:self-start min-[900px]:py-8;
+    @apply min-[900px]:sticky min-[900px]:top-24 min-[900px]:self-start min-[900px]:py-8;
   }
 
   .about-panel {
