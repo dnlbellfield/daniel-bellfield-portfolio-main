@@ -807,6 +807,8 @@ section {
   }
 
   .sticky-portrait {
+    position: sticky;
+    top: 6rem;
     align-self: flex-start;
     padding-top: 2rem;
     padding-bottom: 2rem;
