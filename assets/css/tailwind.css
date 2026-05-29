@@ -16,11 +16,13 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth bg-paper;
+    overflow-x: clip;
   }
 
   body {
     @apply m-0 bg-paper font-sans text-body font-normal text-ink-body antialiased;
+    overflow-x: clip;
   }
 
   img {
@@ -103,7 +105,7 @@
   }
 
   .sticky-portrait {
-    @apply min-[900px]:sticky min-[900px]:top-24 min-[900px]:self-start min-[900px]:py-8;
+    @apply min-[900px]:self-start min-[900px]:py-8;
   }
 
   .about-panel {
@@ -146,8 +148,12 @@
     @apply mb-9 max-w-[30rem] text-[1.02rem] leading-[1.55] text-ink-soft sm:text-[1.08rem];
   }
 
+  .portrait-stage {
+    @apply relative mx-auto w-full max-w-[24rem] min-[900px]:max-w-[29rem];
+  }
+
   .hero-image {
-    @apply overflow-hidden rounded-lg bg-gradient-to-b from-portrait-top to-portrait-bottom shadow-lg;
+    @apply relative z-20 overflow-hidden rounded-lg bg-gradient-to-b from-portrait-top to-portrait-bottom shadow-lg;
     --portrait-top: #60a5fa;
     --portrait-bottom: #93c5fd;
     background-image: linear-gradient(to bottom, var(--portrait-top), var(--portrait-bottom));
@@ -158,20 +164,108 @@
   }
 
   .hero-image {
-    @apply relative mx-auto aspect-[4/5] w-full max-w-[24rem] min-[900px]:max-w-[30rem];
+    @apply aspect-[4/5] w-full;
   }
 
   .hero-image::after {
     content: "";
     @apply pointer-events-none absolute inset-0 rounded-lg shadow-[inset_0_0_0_1px_rgba(47,111,237,0.16)];
+    z-index: 30;
   }
 
   .hero-image img {
-    @apply h-full w-full object-cover;
+    @apply relative h-full w-full object-cover;
+    z-index: 25;
   }
 
   .hero-image img {
     @apply object-top;
+  }
+
+  .portrait-icon {
+    @apply pointer-events-none absolute font-black uppercase text-white;
+    font-size: 6.5rem;
+    line-height: 0.85;
+    letter-spacing: 0.02em;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    left: 50%;
+    z-index: 15;
+    opacity: 0;
+    font-weight: 900;
+    transition:
+      opacity 1200ms ease-out,
+      transform 1100ms cubic-bezier(0.25, 0.9, 0.35, 1);
+    will-change: opacity, transform;
+  }
+
+  .portrait-icon svg {
+    @apply h-[1.75rem] w-[1.75rem];
+  }
+
+  .portrait-icon-code {
+    top: 8%;
+    transform: translate3d(-50%, 0, 0) scale(0.86);
+    transition-delay: 350ms;
+  }
+
+  .portrait-icon-email {
+    top: 22%;
+    transform: translate3d(-50%, 0, 0) scale(0.86);
+    transition-delay: 500ms;
+  }
+
+  .portrait-icon-check {
+    top: 36%;
+    transform: translate3d(-50%, 0, 0) scale(0.86);
+    transition-delay: 650ms;
+  }
+
+  .portrait-stage.is-revealed .portrait-icon {
+    opacity: 1;
+  }
+
+  .portrait-stage.is-revealed .portrait-icon-email {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  .portrait-stage.is-revealed .portrait-icon-code {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  .portrait-stage.is-revealed .portrait-icon-check {
+    transform: translate3d(-50%, 0, 0) scale(1);
+  }
+
+  .portrait-bg-text {
+    @apply pointer-events-none absolute z-10 font-black uppercase tracking-tight text-white;
+    font-size: 3.5rem;
+    line-height: 1;
+    opacity: 0.25;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .portrait-bg-text-web {
+    top: 20%;
+  }
+
+  .portrait-bg-text-email {
+    top: 42%;
+  }
+
+  .portrait-bg-text-crm {
+    top: 64%;
+  }
+
+  @media (max-width: 899px) {
+    .portrait-stage {
+      @apply max-w-[21rem];
+    }
+
+    .portrait-icon {
+      font-size: 4.5rem;
+      line-height: 0.85;
+    }
   }
 
   @media (min-width: 900px) {
@@ -476,6 +570,11 @@
   .project-card.is-tilting,
   .project-card.is-tilting .project-media img,
   .project-card.is-tilting .qr-mock {
+    transform: none !important;
+  }
+
+  .portrait-icon {
+    opacity: 1 !important;
     transform: none !important;
   }
 }

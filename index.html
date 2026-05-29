@@ -93,8 +93,13 @@
           </div>
 
           <div class="sticky-portrait fade-up delay-3">
-            <div class="hero-image">
-              <img src="/images/daniel_img___2.avif" alt="Daniel Bellfield" />
+            <div class="portrait-stage" data-portrait-stage>
+              <div class="hero-image">
+                <!-- <div class="portrait-icon portrait-icon-code" aria-hidden="true">WEB</div>
+                <div class="portrait-icon portrait-icon-email" aria-hidden="true">EMAIL</div>
+                <div class="portrait-icon portrait-icon-check" aria-hidden="true">CRM</div> -->
+                <img src="/images/daniel_img___2.avif" alt="Daniel Bellfield" />
+              </div>
             </div>
           </div>
 
@@ -453,7 +458,22 @@
   </script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      const portraitStage = document.querySelector("[data-portrait-stage]");
+      const aboutPanel = document.getElementById("about");
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (portraitStage && aboutPanel) {
+        const updatePortraitReveal = () => {
+          const triggerLine = window.innerHeight * 0.68;
+          const aboutTop = aboutPanel.getBoundingClientRect().top;
+          portraitStage.classList.toggle("is-revealed", reduceMotion || aboutTop <= triggerLine);
+        };
+
+        updatePortraitReveal();
+        window.addEventListener("scroll", updatePortraitReveal, { passive: true });
+        window.addEventListener("resize", updatePortraitReveal);
+      }
+
       const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
       if (finePointer && !reduceMotion) {
