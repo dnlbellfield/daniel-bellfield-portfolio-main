@@ -555,14 +555,15 @@ video {
 }
 
 html {
+  overflow-x: clip;
   scroll-behavior: smooth;
   --tw-bg-opacity: 1;
   background-color: rgb(251 252 255 / var(--tw-bg-opacity, 1));
-  overflow-x: clip;
 }
 
 body {
   margin: 0px;
+  overflow-x: clip;
   --tw-bg-opacity: 1;
   background-color: rgb(251 252 255 / var(--tw-bg-opacity, 1));
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
@@ -573,7 +574,6 @@ body {
   color: rgb(51 65 85 / var(--tw-text-opacity, 1));
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: clip;
 }
 
 img {
@@ -788,8 +788,8 @@ section {
   .intro-story-grid {
     grid-template-columns: 0.9fr 0.82fr;
     gap: 3.5rem;
+    padding-bottom: 5rem;
     padding-top: 0px;
-    padding-bottom: 0px;
   }
 }
 
@@ -1184,10 +1184,26 @@ section {
 .value-map {
   --tw-bg-opacity: 1;
   background-color: rgb(238 244 251 / var(--tw-bg-opacity, 1));
+}
+
+@media (min-width: 960px) {
+  .value-map {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+.value-map {
   border-top-width: 1px;
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(221 229 239 / var(--tw-border-opacity, 1));
+}
+
+@media (min-width: 960px) {
+  .value-map .section-header {
+    margin-bottom: 4rem;
+  }
 }
 
 .systems-map {
@@ -1203,7 +1219,7 @@ section {
   .systems-map {
     grid-template-columns: 0.86fr 1.14fr;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 4rem;
   }
 }
 
@@ -1224,7 +1240,7 @@ section {
   .workflow-tools {
     position: sticky;
     top: 6rem;
-    padding: 1.75rem;
+    padding: 2rem;
   }
 }
 
@@ -1315,8 +1331,8 @@ section {
 
 @media (min-width: 960px) {
   .value-step {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
   }
 }
 
@@ -1833,6 +1849,10 @@ section {
   margin-top: 2.5rem;
 }
 
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -2051,6 +2071,10 @@ section {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-x-clip {
+  overflow-x: clip;
 }
 
 .scroll-smooth {
@@ -2656,6 +2680,14 @@ section {
 }
 
 @media (min-width: 900px) {
+  .min-\[900px\]\:sticky {
+    position: sticky;
+  }
+
+  .min-\[900px\]\:top-24 {
+    top: 6rem;
+  }
+
   .min-\[900px\]\:col-span-1 {
     grid-column: span 1 / span 1;
   }
@@ -2710,6 +2742,10 @@ section {
 
   .min-\[900px\]\:border-b-0 {
     border-bottom-width: 0px;
+  }
+
+  .min-\[900px\]\:pb-20 {
+    padding-bottom: 5rem;
   }
 
   .min-\[900px\]\:pb-24 {

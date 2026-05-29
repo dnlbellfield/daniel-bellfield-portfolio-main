@@ -16,11 +16,11 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth overflow-x-clip bg-paper;
   }
 
   body {
-    @apply m-0 bg-paper font-sans text-body font-normal text-ink-body antialiased;
+    @apply m-0 overflow-x-clip bg-paper font-sans text-body font-normal text-ink-body antialiased;
   }
 
   img {
@@ -95,7 +95,7 @@
   }
 
   .intro-story-grid {
-    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:py-0;
+    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:pb-20 min-[900px]:pt-0;
   }
 
   .intro-hero {
@@ -286,19 +286,23 @@
   }
 
   .value-map {
-    @apply bg-paper-warm;
+    @apply bg-paper-warm min-[960px]:py-32;
   }
 
   .value-map {
     @apply border-y border-line;
   }
 
+  .value-map .section-header {
+    @apply min-[960px]:mb-16;
+  }
+
   .systems-map {
-    @apply mx-auto grid max-w-[68rem] grid-cols-1 gap-8 min-[960px]:grid-cols-[0.86fr_1.14fr] min-[960px]:items-start min-[960px]:gap-12;
+    @apply mx-auto grid max-w-[68rem] grid-cols-1 gap-8 min-[960px]:grid-cols-[0.86fr_1.14fr] min-[960px]:items-start min-[960px]:gap-16;
   }
 
   .workflow-tools {
-    @apply rounded-lg border border-line bg-surface p-6 shadow-sm min-[960px]:sticky min-[960px]:top-24 min-[960px]:p-7;
+    @apply rounded-lg border border-line bg-surface p-6 shadow-sm min-[960px]:sticky min-[960px]:top-24 min-[960px]:p-8;
   }
 
   .workflow-tool-groups {
@@ -340,7 +344,7 @@
   .value-step {
     counter-increment: valueStep;
     --lift: 0px;
-    @apply relative grid grid-cols-[auto_1fr] gap-4 border-b border-line bg-transparent py-7 min-[720px]:border-b-0 min-[960px]:py-8;
+    @apply relative grid grid-cols-[auto_1fr] gap-4 border-b border-line bg-transparent py-7 min-[720px]:border-b-0 min-[960px]:py-9;
     transform: translateY(var(--lift));
     transition:
       opacity 320ms ease,
