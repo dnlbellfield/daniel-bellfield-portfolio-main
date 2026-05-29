@@ -118,10 +118,6 @@
     @apply mb-4 max-w-[36rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title;
   }
 
-  .about-intro {
-    @apply mb-10 max-w-[34rem] text-body-lg leading-[1.72] text-ink-soft;
-  }
-
   .hero {
     @apply py-10 sm:py-14 md:py-16;
   }
@@ -150,8 +146,7 @@
     @apply mb-9 max-w-[30rem] text-[1.02rem] leading-[1.55] text-ink-soft sm:text-[1.08rem];
   }
 
-  .hero-image,
-  .about-photo {
+  .hero-image {
     @apply overflow-hidden rounded-lg bg-gradient-to-b from-portrait-top to-portrait-bottom shadow-lg;
     --portrait-top: #60a5fa;
     --portrait-bottom: #93c5fd;
@@ -160,11 +155,6 @@
       --portrait-top 260ms ease,
       --portrait-bottom 260ms ease,
       box-shadow 260ms ease;
-  }
-
-  body.about-portrait-light .hero-image {
-    --portrait-top: #93c5fd;
-    --portrait-bottom: #dbeafe;
   }
 
   .hero-image {
@@ -176,8 +166,7 @@
     @apply pointer-events-none absolute inset-0 rounded-lg shadow-[inset_0_0_0_1px_rgba(47,111,237,0.16)];
   }
 
-  .hero-image img,
-  .about-photo img {
+  .hero-image img {
     @apply h-full w-full object-cover;
   }
 
@@ -204,57 +193,7 @@
     @apply bg-ink hover:bg-accent;
   }
 
-  .btn-secondary {
-    @apply border-line-strong bg-transparent hover:border-ink;
-  }
-
-  .work-grid {
-    @apply grid grid-cols-1 gap-12 min-[900px]:grid-cols-[0.9fr_1.1fr] min-[900px]:items-start min-[900px]:gap-14;
-  }
-
-  .work-intro {
-    @apply static rounded-lg border border-line bg-surface p-7 shadow-sm min-[900px]:sticky min-[900px]:top-24 min-[900px]:p-8;
-  }
-
-  .proof-list {
-    @apply m-0 grid list-none gap-2 border-t border-line p-0 pt-6;
-  }
-
-  .proof-list li,
-  .systems-points li {
-    @apply flex items-center gap-[0.65rem];
-  }
-
-  .proof-list li::before,
-  .systems-points li::before {
-    content: "";
-    @apply h-1.5 w-1.5 shrink-0 rounded-full;
-  }
-
-  .proof-list li::before {
-    @apply bg-accent;
-  }
-
-  .work-cards,
-  .skill-lanes,
-  .systems-flow {
-    @apply grid gap-[0.85rem];
-  }
-
-  .work-card {
-    @apply grid grid-cols-[auto_1fr] gap-4 rounded-md border border-line bg-surface p-[1.1rem] shadow-sm transition duration-150 hover:-translate-y-px hover:border-line-strong hover:shadow-md;
-  }
-
-  .card-icon {
-    @apply inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-accent-soft text-accent;
-  }
-
-  .card-icon svg {
-    @apply h-4 w-4;
-  }
-
-  .value-map,
-  .about {
+  .value-map {
     @apply bg-paper-warm;
   }
 
@@ -280,27 +219,6 @@
 
   .workflow-tool-label {
     @apply mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted;
-  }
-
-  .systems-summary {
-    @apply relative overflow-hidden rounded-lg bg-accent p-6 shadow-md min-[960px]:sticky min-[960px]:top-24;
-  }
-
-  .systems-summary::after {
-    content: "";
-    @apply absolute -bottom-20 -right-20 h-52 w-52 rounded-full bg-accent-light/20;
-  }
-
-  .systems-points {
-    @apply relative;
-  }
-
-  .systems-points {
-    @apply m-0 mt-6 grid list-none gap-2 p-0;
-  }
-
-  .systems-points li::before {
-    @apply bg-accent-light;
   }
 
   .systems-flow {
@@ -368,29 +286,14 @@
     @apply text-accent;
   }
 
-  .value-tags,
   .project-tags,
   .tool-cloud,
   .footer-nav {
     @apply flex flex-wrap;
   }
 
-  .value-tags {
-    @apply mt-3 gap-[0.4rem];
-  }
-
-  .value-outcome {
-    @apply mt-4 rounded-md border border-line-strong bg-surface px-[1.15rem] py-4 shadow-sm;
-  }
-
-  .skills,
-  #what-i-do,
   #projects {
     @apply bg-paper;
-  }
-
-  .skills-feature {
-    @apply mb-5 grid grid-cols-1 gap-8 rounded-lg border border-line bg-surface p-8 shadow-sm min-[900px]:grid-cols-[0.9fr_1.1fr] min-[900px]:items-center min-[900px]:gap-12 min-[900px]:p-10;
   }
 
   .tool-cloud {
@@ -401,44 +304,66 @@
     @apply inline-flex items-center rounded-full bg-accent-soft px-3 py-1.5;
   }
 
-  .skill-lanes {
-    @apply sm:grid-cols-2 min-[900px]:grid-cols-3;
-  }
-
-  .skill-lane {
-    @apply rounded-md border border-line bg-surface p-[1.1rem] shadow-sm;
-  }
-
-  .lane-head {
-    @apply mb-3 flex items-center gap-3;
-  }
-
-  .about-grid {
-    @apply grid grid-cols-1 items-start gap-10 min-[900px]:grid-cols-[0.85fr_1.15fr] min-[900px]:gap-14;
-  }
-
-  .about-photo {
-    @apply mx-auto aspect-square max-w-sm;
-  }
-
   .about-body {
     @apply max-w-[44rem];
   }
 
-  .about-facts {
-    @apply my-7 grid grid-cols-1 gap-2 min-[540px]:grid-cols-[repeat(auto-fit,minmax(9.5rem,1fr))];
-  }
-
-  .fact {
-    @apply rounded-sm bg-accent-soft p-3 text-center;
-  }
-
   .projects-grid {
-    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 min-[900px]:grid-cols-3;
+    @apply grid grid-cols-1 gap-5 min-[760px]:grid-cols-2 min-[900px]:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)] min-[900px]:grid-rows-2 min-[900px]:gap-6;
   }
 
   .project-card {
-    @apply flex flex-col overflow-hidden rounded-md border border-line bg-surface text-inherit shadow-sm transition duration-150 hover:-translate-y-0.5 hover:border-line-strong hover:text-inherit hover:shadow-md;
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    @apply relative flex flex-col overflow-hidden rounded-md border border-line bg-surface text-inherit shadow-sm transition duration-200 hover:border-line-strong hover:text-inherit hover:shadow-md;
+    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(0);
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .project-card:hover,
+  .project-card.is-tilting {
+    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-2px);
+  }
+
+  .project-card-feature {
+    @apply min-[760px]:col-span-2 min-[900px]:col-span-1 min-[900px]:row-span-2;
+  }
+
+  .project-card-feature .project-media {
+    @apply min-[900px]:aspect-[16/13];
+  }
+
+  .project-card-feature .project-media img {
+    @apply min-[900px]:p-7;
+  }
+
+  .project-card-feature .project-body {
+    @apply min-[900px]:p-6;
+  }
+
+  .project-card-feature h3 {
+    @apply min-[900px]:text-[1.35rem];
+  }
+
+  .project-card-secondary {
+    @apply min-[900px]:grid min-[900px]:grid-cols-[0.9fr_1.1fr] min-[900px]:items-stretch;
+  }
+
+  .project-card-secondary .project-media {
+    @apply min-[900px]:aspect-auto min-[900px]:border-b-0 min-[900px]:border-r;
+  }
+
+  .project-card-secondary .project-media img {
+    @apply min-[900px]:p-4;
+  }
+
+  .project-card-secondary .project-body {
+    @apply min-[900px]:p-5;
+  }
+
+  .project-card-secondary .qr-mock {
+    @apply min-[900px]:h-28 min-[900px]:w-28;
   }
 
   .project-media {
@@ -446,11 +371,16 @@
   }
 
   .project-media img {
-    @apply h-full w-full object-contain p-5;
+    @apply h-full w-full object-contain p-5 transition duration-300;
+  }
+
+  .project-card.is-tilting .project-media img,
+  .project-card.is-tilting .qr-mock {
+    transform: translateZ(18px) scale(1.015);
   }
 
   .project-body {
-    @apply flex flex-1 flex-col p-[1.15rem];
+    @apply flex flex-1 flex-col p-[1.15rem] transition duration-300;
   }
 
   .project-tags {
@@ -467,7 +397,7 @@
 
 
   .qr-mock {
-    @apply grid h-40 w-40 grid-cols-11 grid-rows-11 gap-0.5 rounded-sm bg-white p-2 shadow-sm;
+    @apply grid h-40 w-40 grid-cols-11 grid-rows-11 gap-0.5 rounded-sm bg-white p-2 shadow-sm transition duration-300;
   }
 
   .qr-mock span {
@@ -540,7 +470,12 @@
   }
 
   .value-step,
-  .systems-flow::after {
+  .systems-flow::after,
+  .project-card,
+  .project-card:hover,
+  .project-card.is-tilting,
+  .project-card.is-tilting .project-media img,
+  .project-card.is-tilting .qr-mock {
     transform: none !important;
   }
 }
