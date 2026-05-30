@@ -57,20 +57,32 @@
   }
 
   .nav {
-    @apply flex h-16 items-center justify-between;
+    @apply grid min-h-16 grid-cols-[1fr_auto] items-center gap-4 py-3 md:flex md:h-16 md:justify-between md:py-0;
   }
 
   .nav-links {
-    @apply hidden list-none items-center gap-1 p-0 md:flex;
+    @apply flex min-w-0 list-none items-center p-0 md:gap-1;
+  }
+
+  .nav-links li:not(:first-child) {
+    @apply hidden md:list-item;
   }
 
   .nav-links a {
     @apply rounded-sm px-[0.85rem] py-2 transition-colors duration-150 hover:bg-accent-soft;
   }
 
+  .nav-links li:first-child a {
+    @apply pl-0 text-[0.8rem] font-bold uppercase tracking-[0.14em] text-accent md:pl-[0.85rem] md:text-body-sm md:font-medium md:normal-case md:tracking-normal md:text-ink-soft;
+  }
+
   .nav-social,
   .footer-social {
     @apply flex items-center gap-2;
+  }
+
+  .nav-social {
+    @apply justify-end;
   }
 
   .social-icon {
