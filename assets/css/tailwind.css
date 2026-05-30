@@ -98,24 +98,12 @@
     @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:pb-20 min-[900px]:pt-0;
   }
 
-  .intro-hero {
-    @apply flex flex-col justify-center min-[900px]:min-h-[calc(100vh-4rem)] min-[900px]:py-8;
-  }
-
   .sticky-portrait {
     @apply min-[900px]:sticky min-[900px]:top-24 min-[900px]:self-start min-[900px]:py-8;
   }
 
   .about-panel {
     @apply scroll-mt-20 pb-12 pt-4 text-left sm:pb-14 min-[900px]:pb-24 min-[900px]:pt-8;
-  }
-
-  .about-kicker {
-    @apply mb-3 inline-block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
-  }
-
-  .about-title {
-    @apply mb-4 max-w-[36rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title;
   }
 
   .hero {
@@ -134,16 +122,12 @@
     @apply mb-4 inline-block text-[0.8rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
   }
 
-  .hero-title {
-    @apply mb-[1.4rem] text-[clamp(2.7rem,11.7vw,3.825rem)] font-bold leading-none tracking-[-0.025em] text-ink-title min-[900px]:text-[clamp(2.7rem,5.4vw,3.825rem)];
+  .intro-name-title {
+    font-size: clamp(3rem, 6vw, 4.5rem);
   }
 
-  .hero-lede {
-    @apply mb-[0.9rem] max-w-[31rem] text-[clamp(1.215rem,4.5vw,1.485rem)] font-semibold leading-[1.28] tracking-normal text-ink-body min-[900px]:text-[clamp(1.215rem,1.98vw,1.485rem)];
-  }
-
-  .hero-subcopy {
-    @apply mb-9 max-w-[30rem] text-[1.02rem] leading-[1.55] text-ink-soft sm:text-[1.08rem];
+  .intro-support-title {
+    font-size: clamp(1.65rem, 2.6vw, 2.1rem);
   }
 
   .portrait-stage {
@@ -311,10 +295,6 @@
 
   .workflow-tool-group {
     @apply border-t border-line pt-4;
-  }
-
-  .workflow-tool-label {
-    @apply mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted;
   }
 
   .systems-flow {

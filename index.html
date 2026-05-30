@@ -44,10 +44,10 @@
   <!-- Header -->
   <header class="site-header">
     <div class="container nav">
-      <a href="#home" class="nav-brand text-[0.95rem] font-bold tracking-[-0.01em] text-ink">Daniel Bellfield</a>
+      <!-- <a href="#home" class="nav-brand text-[0.95rem] font-bold tracking-[-0.01em] text-ink">Daniel Bellfield</a> -->
 
-      <ul class="nav-links">
-        <li><a href="#home" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Home</a></li>
+      <ul class="nav-links" style="margin-left: -1%;">
+        <li><a href="#home" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Daniel&nbsp;Bellfield</a></li>
         <li><a href="#about" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">About</a></li>
         <li><a href="#workflow" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Workflow</a></li>
         <li><a href="#projects" class="text-body-sm font-medium leading-tight text-ink-soft hover:text-ink">Projects</a></li>
@@ -78,13 +78,14 @@
     <section id="home" class="intro-story order-1">
       <div class="container">
         <div class="intro-story-grid">
-          <div class="intro-hero hero-content">
+          <div class="flex max-w-[34rem] flex-col justify-center min-[900px]:min-h-[min(calc(100vh_-_4rem),56.25rem)] min-[900px]:py-8 min-[900px]:pt-0">
             <p class="hero-eyebrow fade-up">Web &amp; Email Developer</p>
-            <h1 class="hero-title fade-up delay-1">Daniel<br />Bellfield</h1>
-            <p class="hero-lede fade-up delay-2">
+            <h1 class="intro-name-title mb-4 max-w-[36rem] font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance fade-up delay-1">Daniel<br />Bellfield</h1>
+            <h2 class="intro-support-title mb-4 max-w-[36rem] font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance fade-up delay-1">Helping teams get digital campaigns ready to launch.</h2>
+            <!-- <p class="mb-[0.9rem] max-w-[31rem] leading-7 text-body font-normal tracking-normal text-ink-soft fade-up delay-2">
              Helping teams get digital campaigns ready to launch.
-            </p>
-            <p class="hero-subcopy fade-up delay-3">
+            </p> -->
+            <p class="mb-9 max-w-[30rem] leading-7 text-body font-normal tracking-normal text-ink-soft fade-up delay-3">
              I build, test, and support the emails, landing pages, platform setup, QA, tracking, and workflow details that keep campaign production moving.
             </p>
             <div class="btn-group fade-up delay-4">
@@ -104,19 +105,19 @@
           </div>
 
           <div id="about" class="about-panel">
-            <p class="about-kicker">About</p>
-            <h2 class="about-title text-balance">Web, email, and CRM production developer.</h2>
+            <p class="mb-3 inline-block text-[0.78rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow">About</p>
+            <h2 class="mb-4 max-w-[36rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">Web, email, and CRM production developer.</h2>
 
             <div class="about-body">
-              <p class="mb-5 max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+              <p class="mb-5 max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
                 I'm Daniel, a web and email developer who works on the production side of digital campaigns — building emails, landing pages, CMS updates, CRM/ESP workflows, QA processes, analytics tracking, and internal tools.
               </p>
 
-              <p class="mb-5 max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+              <p class="mb-5 max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
                 I'm strongest where marketing and technology meet. I understand how creative, content, code, platforms, data, testing, and launch requirements connect, and I use that perspective to help teams move from idea to launch with fewer issues.
               </p>
 
-              <p class="mb-5 max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+              <p class="mb-5 max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
                 Since 2022, I've worked on responsive HTML emails, Salesforce Marketing Cloud support, CMS updates, launch QA, and GA4 tracking. Outside of work, I build tools like
                 <a href="https://emailclarity.netlify.app" target="_blank" rel="noopener">EmailClarity</a>
                 and <a href="https://portfolio-up.com" target="_blank" rel="noopener">Portfolio-Up</a> to keep learning, testing ideas, and improving how digital work gets built and launched.
@@ -139,8 +140,8 @@
       <div class="container">
         <div class="section-header">
           <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">How I Help</p>
-          <h2 id="value-map-title" class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">How I Support Digital Campaigns</h2>
-          <p class="mx-auto max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+          <h2 id="value-map-title" class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance text-gray-600">How I Support Digital Campaigns</h2>
+          <p class="mx-auto max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
             I work behind the scenes to help digital campaigns come together and get ready to launch — from emails and web pages to platform setup, QA, tracking, and the small fixes that keep everything moving.
           </p>
         </div>
@@ -149,13 +150,13 @@
           <aside class="workflow-tools order-2 min-[960px]:order-1" aria-labelledby="workflow-tools-title">
             <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Skills &amp; Tools</p>
             <h3 id="workflow-tools-title" class="mb-3 text-panel-title font-bold leading-[1.14] tracking-[-0.025em] text-ink-title">Tools tied to the work.</h3>
-            <p class="mb-6 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
+            <p class="mb-6 leading-7 text-body font-normal tracking-normal text-ink-soft">
               A focused stack for building campaign assets, supporting CRM/ESP production, and getting launches ready.
             </p>
 
             <div class="workflow-tool-groups">
               <div class="workflow-tool-group">
-                <p class="workflow-tool-label">Web admin</p>
+                <p class="mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted">Web admin</p>
                 <div class="tool-cloud">
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">HTML</span>
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">CSS</span>
@@ -166,7 +167,7 @@
               </div>
 
               <div class="workflow-tool-group">
-                <p class="workflow-tool-label">Email build</p>
+                <p class="mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted">Email build</p>
                 <div class="tool-cloud">
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">HTML Email</span>
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">Email Templates</span>
@@ -176,7 +177,7 @@
               </div>
 
               <div class="workflow-tool-group">
-                <p class="workflow-tool-label">CRM / ESP</p>
+                <p class="mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted">CRM / ESP</p>
                 <div class="tool-cloud">
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">Salesforce Marketing Cloud</span>
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">ESP Production</span>
@@ -186,7 +187,7 @@
               </div>
 
               <div class="workflow-tool-group">
-                <p class="workflow-tool-label">Launch systems</p>
+                <p class="mb-3 text-[0.72rem] font-bold uppercase tracking-[0.14em] text-ink-muted">Launch systems</p>
                 <div class="tool-cloud">
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">QA / Debugging</span>
                   <span class="chip text-body-sm font-semibold leading-tight text-accent">GA4</span>
@@ -204,35 +205,35 @@
               <article class="value-step" data-pipeline-step="0">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Web administration</h3>
-                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">CMS updates, landing pages, forms, donation paths, content blocks, and front-end fixes.<br /><em>Site ready for campaign traffic.</em></p>
+                  <p class="leading-7 text-body font-normal tracking-normal text-ink-soft">CMS updates, landing pages, forms, donation paths, content blocks, and front-end fixes.<br /><em>Site ready for campaign traffic.</em></p>
                 </div>
               </article>
 
               <article class="value-step" data-pipeline-step="1">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Email development</h3>
-                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Responsive HTML emails, template edits, personalization prep, rendering fixes, and handoff-ready files.<br /><em>Creative becomes sendable.</em></p>
+                  <p class="leading-7 text-body font-normal tracking-normal text-ink-soft">Responsive HTML emails, template edits, personalization prep, rendering fixes, and handoff-ready files.<br /><em>Creative becomes sendable.</em></p>
                 </div>
               </article>
 
               <article class="value-step" data-pipeline-step="2">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Platform production</h3>
-                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">CRM/ESP setup across audiences, data extensions, links, automations, forms, and platform-specific requirements.<br /><em>Systems line up before launch.</em></p>
+                  <p class="leading-7 text-body font-normal tracking-normal text-ink-soft">CRM/ESP setup across audiences, data extensions, links, automations, forms, and platform-specific requirements.<br /><em>Systems line up before launch.</em></p>
                 </div>
               </article>
 
               <article class="value-step" data-pipeline-step="3">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QA and analytics</h3>
-                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Rendering checks, link testing, content review, tracking validation, and launch-readiness QA.<br /><em>Fewer surprises after send.</em></p>
+                  <p class="leading-7 text-body font-normal tracking-normal text-ink-soft">Rendering checks, link testing, content review, tracking validation, and launch-readiness QA.<br /><em>Fewer surprises after send.</em></p>
                 </div>
               </article>
 
               <article class="value-step" data-pipeline-step="4">
                 <div>
                   <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Internal tools and AI</h3>
-                  <p class="text-body font-normal leading-[1.64] tracking-normal text-ink-soft">Lightweight utilities, documentation, and AI-assisted workflows that reduce repetitive production work.<br /><em>The team moves faster next time.</em></p>
+                  <p class="leading-7 text-body font-normal tracking-normal text-ink-soft">Lightweight utilities, documentation, and AI-assisted workflows that reduce repetitive production work.<br /><em>The team moves faster next time.</em></p>
                 </div>
               </article>
             </div>
@@ -247,7 +248,7 @@
         <div class="section-header">
           <p class="mb-3 inline-block text-eyebrow font-semibold uppercase tracking-[0.14em] text-accent">Selected Work</p>
           <h2 class="mb-[0.85rem] text-section-title font-bold leading-[1.14] tracking-[-0.03em] text-ink-title text-balance">Projects</h2>
-          <p class="mx-auto max-w-[39rem] text-body-lg leading-[1.72] text-ink-soft">
+          <p class="mx-auto max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
             Live products, service sites, and internal tools — built outside client work to sharpen the same skills I bring to campaign production: shipping clean code, solving real problems, and building practical systems.
           </p>
         </div>
@@ -263,7 +264,7 @@
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Live Product</span>
               </div>
               <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Portfolio-Up</h3>
-              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
+              <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
                 A live Laravel product that turns profile details, work history, skills, and images into a mobile-friendly personal site. Built to practice product thinking, database-backed workflows, and user-facing site generation.
               </p>
               <span class="project-link text-body-sm font-semibold leading-tight text-accent">
@@ -285,7 +286,7 @@
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Live Site</span>
               </div>
               <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">EmailClarity</h3>
-              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
+              <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
                 A focused service site for email audits, automation review, custom email coding, and GA4 tracking. Built around the same production problems I solve for campaign teams.
               </p>
               <span class="project-link text-body-sm font-semibold leading-tight text-accent">
@@ -330,7 +331,7 @@
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Cost Reduction</span>
               </div>
               <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QR Code Generator</h3>
-              <p class="mb-5 flex-1 text-body font-normal leading-[1.64] tracking-normal text-ink-soft">
+              <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
                 An internal utility built to replace a paid QR platform, reduce recurring costs, and remove usage-limit friction. A small example of turning repeated workflow pain into a practical tool.
               </p>
               <span class="project-link muted text-body-sm font-semibold leading-tight text-ink-muted">Workflow Tool</span>
