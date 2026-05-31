@@ -132,15 +132,23 @@
   }
 
   .intro-story-grid {
-    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:gap-14 min-[900px]:pb-20 min-[900px]:pt-0;
+    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:min-h-[min(calc(100vh_-_4rem),54rem)] min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:items-center min-[900px]:gap-14 min-[900px]:py-8;
   }
 
   .sticky-portrait {
-    @apply min-[900px]:sticky min-[900px]:top-32 min-[900px]:self-start min-[900px]:py-8;
+    @apply min-[900px]:self-center min-[900px]:py-8;
   }
 
-  .about-panel {
-    @apply scroll-mt-20 pb-12 pt-4 text-left sm:pb-14 min-[900px]:pb-24 min-[900px]:pt-8;
+  /* .about-section {
+    @apply scroll-mt-20 border-t border-line bg-paper py-14 text-left sm:py-16 md:py-20;
+  } */
+
+  .about-grid {
+    @apply grid gap-8 min-[900px]:grid-cols-[0.82fr_1.18fr] min-[900px]:gap-16;
+  }
+
+  .about-heading {
+    @apply max-w-[36rem];
   }
 
   .hero {
@@ -237,7 +245,6 @@
   @media (min-width: 900px) {
     .sticky-portrait {
       grid-column: 2;
-      grid-row: 1 / span 2;
     }
   }
 
