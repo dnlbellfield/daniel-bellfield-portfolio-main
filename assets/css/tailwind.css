@@ -176,7 +176,7 @@
   }
 
   .portrait-stage {
-    @apply relative mx-auto w-full max-w-[24rem] min-[900px]:max-w-[27rem];
+    @apply relative mx-auto w-full max-w-[22rem] min-[900px]:max-w-[24rem];
   }
 
   .hero-image {
@@ -232,7 +232,7 @@
 
   @media (max-width: 899px) {
     .portrait-stage {
-      max-width: clamp(21rem, calc(185.75rem - 293vw), 100%);
+      max-width: min(37.5rem, clamp(21rem, calc(185.75rem - 293vw), 100%));
     }
 
     .hero-image {
@@ -242,7 +242,7 @@
 
   @media (max-width: 767px) {
     .portrait-stage {
-      @apply max-w-none;
+      max-width: min(37.5rem, 100%);
     }
   }
 
@@ -490,11 +490,11 @@
   }
 
   .footer-grid {
-    @apply flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left;
+    @apply flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left;
   }
 
   .footer-nav {
-    @apply justify-center gap-6;
+    @apply max-w-[20rem] justify-center gap-x-5 gap-y-2 md:max-w-none md:gap-6;
   }
 
   .footer-nav a {
