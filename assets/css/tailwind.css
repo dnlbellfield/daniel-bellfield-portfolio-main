@@ -49,7 +49,7 @@
 
 @layer components {
   .container {
-    @apply mx-auto w-full max-w-6xl px-6;
+    @apply mx-auto w-full max-w-6xl px-6 sm:px-8 lg:px-16;
   }
 
   .site-header {
@@ -74,7 +74,7 @@
   }
 
   .nav-links li:first-child a {
-    @apply pl-0 text-body-sm font-medium normal-case tracking-normal text-ink-soft md:pl-[0.85rem];
+    @apply pl-0 text-body-sm font-medium normal-case tracking-normal text-ink-soft;
   }
 
   .nav-links li:first-child a:hover {
@@ -132,19 +132,19 @@
   }
 
   .intro-story-grid {
-    @apply grid grid-cols-1 gap-10 py-10 sm:py-14 min-[900px]:min-h-[min(calc(100vh_-_4rem),54rem)] min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:items-center min-[900px]:gap-14 min-[900px]:py-8;
+    @apply grid grid-cols-1 gap-8 pb-4 pt-8 sm:gap-10 sm:pb-8 sm:pt-12 min-[900px]:min-h-[min(calc(100vh_-_4rem),54rem)] min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:items-center min-[900px]:gap-14 min-[900px]:py-8;
   }
 
   .sticky-portrait {
     @apply min-[900px]:self-center min-[900px]:py-8;
   }
 
-  /* .about-section {
-    @apply scroll-mt-20 border-t border-line bg-paper py-14 text-left sm:py-16 md:py-20;
-  } */
+  .about-section {
+    @apply scroll-mt-20 bg-paper pb-16 pt-4 text-left sm:pb-16 sm:pt-8 md:py-20 lg:pb-36;
+  }
 
   .about-grid {
-    @apply grid gap-8 min-[900px]:grid-cols-[0.82fr_1.18fr] min-[900px]:gap-16;
+    @apply grid gap-3 min-[900px]:grid-cols-[0.82fr_1.18fr] min-[900px]:gap-16;
   }
 
   .about-heading {
@@ -234,6 +234,10 @@
     .portrait-stage {
       max-width: clamp(21rem, calc(185.75rem - 293vw), 100%);
     }
+
+    .hero-image {
+      aspect-ratio: 1.12 / 1;
+    }
   }
 
   @media (max-width: 767px) {
@@ -262,10 +266,6 @@
 
   .value-map {
     @apply bg-paper-warm min-[960px]:py-32;
-  }
-
-  .value-map {
-    @apply border-y border-line;
   }
 
   .value-map .section-header {
@@ -346,7 +346,7 @@
   }
 
   .value-step h3 {
-    @apply transition-colors duration-200;
+    @apply text-[1.18rem] leading-[1.25] transition-colors duration-200;
   }
 
   .value-step.is-active h3 {

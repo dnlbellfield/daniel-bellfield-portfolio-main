@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --minify",
+    "build:readable": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css",
     "dev": "tailwindcss -i ./assets/css/tailwind.css -o ./assets/css/style.css --watch"
   },
   "devDependencies": {

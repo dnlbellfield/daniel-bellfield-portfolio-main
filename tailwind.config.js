@@ -35,10 +35,10 @@ module.exports = {
         sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
       },
       fontSize: {
-        eyebrow: ["0.84rem", { lineHeight: "1.2" }],
+        eyebrow: ["1.2rem", { lineHeight: "1.2" }],
         "body-sm": ["0.9rem", { lineHeight: "1.25" }],
-        body: ["1.08rem", { lineHeight: "1.64" }],
-        "body-lg": ["1.06rem", { lineHeight: "1.72" }],
+        body: ["1.16rem", { lineHeight: "1.64" }],
+        "body-lg": ["1.16rem", { lineHeight: "1.72" }],
         "card-title": ["1rem", { lineHeight: "1.28" }],
         "hero-title": ["clamp(2.45rem,4.6vw,3.85rem)", { lineHeight: "1.08" }],
         "section-title": ["clamp(1.9rem,2.8vw,2.45rem)", { lineHeight: "1.14" }],
