@@ -1698,16 +1698,19 @@ section {
 }
 
 .site-footer {
+  border-top-width: 1px;
+  --tw-border-opacity: 1;
+  border-color: rgb(221 229 239 / var(--tw-border-opacity, 1));
   --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+  background-color: rgb(251 252 255 / var(--tw-bg-opacity, 1));
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 @media (min-width: 768px) {
   .site-footer {
-    padding-top: 2.25rem;
-    padding-bottom: 2.25rem;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
   }
 }
 
@@ -1715,7 +1718,7 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   text-align: center;
 }
 
@@ -1733,8 +1736,22 @@ section {
   gap: 1.5rem;
 }
 
+.footer-nav a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.25;
+  --tw-text-opacity: 1;
+  color: rgb(66 80 102 / var(--tw-text-opacity, 1));
+}
+
+.footer-nav a:hover {
+  --tw-text-opacity: 1;
+  color: rgb(22 32 51 / var(--tw-text-opacity, 1));
+}
+
 .footer-social .social-icon {
-  background-color: rgb(255 255 255 / 0.1);
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 32 51 / var(--tw-bg-opacity, 1));
 }
 
 .footer-social .social-icon:hover {
@@ -1745,7 +1762,8 @@ section {
 .footer-bottom {
   margin-top: 1.75rem;
   border-top-width: 1px;
-  border-color: rgb(255 255 255 / 0.1);
+  --tw-border-opacity: 1;
+  border-color: rgb(221 229 239 / var(--tw-border-opacity, 1));
   padding-top: 1.25rem;
 }
 
@@ -2150,10 +2168,6 @@ section {
   gap: 1.25rem;
 }
 
-.gap-6 {
-  gap: 1.5rem;
-}
-
 .gap-8 {
   gap: 2rem;
 }
@@ -2224,10 +2238,6 @@ section {
   border-color: transparent;
 }
 
-.border-white\/10 {
-  border-color: rgb(255 255 255 / 0.1);
-}
-
 .bg-accent {
   --tw-bg-opacity: 1;
   background-color: rgb(47 111 237 / var(--tw-bg-opacity, 1));
@@ -2236,11 +2246,6 @@ section {
 .bg-accent-soft {
   --tw-bg-opacity: 1;
   background-color: rgb(232 240 255 / var(--tw-bg-opacity, 1));
-}
-
-.bg-black {
-  --tw-bg-opacity: 1;
-  background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1));
 }
 
 .bg-ink {
@@ -2358,6 +2363,11 @@ section {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .py-7 {
@@ -2607,14 +2617,6 @@ section {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-
-.text-white\/40 {
-  color: rgb(255 255 255 / 0.4);
-}
-
-.text-white\/70 {
-  color: rgb(255 255 255 / 0.7);
 }
 
 .no-underline {

@@ -486,19 +486,23 @@
   }
 
   .site-footer {
-    @apply bg-black py-7 md:py-9;
+    @apply border-t border-line bg-paper py-4 md:py-5;
   }
 
   .footer-grid {
-    @apply flex flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left;
+    @apply flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:text-left;
   }
 
   .footer-nav {
     @apply justify-center gap-6;
   }
 
+  .footer-nav a {
+    @apply text-[0.9rem] font-medium leading-tight text-ink-soft hover:text-ink;
+  }
+
   .footer-social .social-icon {
-    @apply bg-white/10;
+    @apply bg-ink;
   }
 
   .footer-social .social-icon:hover {
@@ -506,7 +510,7 @@
   }
 
   .footer-bottom {
-    @apply mt-7 border-t border-white/10 pt-5;
+    @apply mt-7 border-t border-line pt-5;
   }
 
   .fade-up {
