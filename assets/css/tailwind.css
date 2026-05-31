@@ -164,7 +164,7 @@
   }
 
   .hero-eyebrow {
-    @apply mb-4 inline-block text-[0.8rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
+    @apply mb-4 inline-block text-[0.95rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
   }
 
   .intro-name-title {
