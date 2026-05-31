@@ -490,11 +490,15 @@
   }
 
   .footer-grid {
-    @apply flex flex-col items-center gap-3 text-center md:flex-row md:items-center md:justify-between md:text-left;
+    @apply flex flex-col items-center gap-4 text-center md:flex-row md:items-center md:justify-between md:gap-3 md:text-left;
   }
 
   .footer-nav {
     @apply max-w-[20rem] justify-center gap-x-5 gap-y-2 md:max-w-none md:gap-6;
+  }
+
+  .footer-nav a:first-child {
+    @apply hidden md:inline;
   }
 
   .footer-nav a {
