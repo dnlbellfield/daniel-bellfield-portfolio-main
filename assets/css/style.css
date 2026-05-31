@@ -1573,7 +1573,6 @@ section {
 
 .project-body {
   display: flex;
-  flex: 1 1 0%;
   flex-direction: column;
   padding: 1.15rem;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
@@ -2031,10 +2030,6 @@ section {
 
 .max-w-\[68rem\] {
   max-width: 68rem;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
 }
 
 .shrink-0 {

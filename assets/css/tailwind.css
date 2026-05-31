@@ -433,7 +433,7 @@
   }
 
   .project-body {
-    @apply flex flex-1 flex-col p-[1.15rem] transition duration-300;
+    @apply flex flex-col p-[1.15rem] transition duration-300;
   }
 
   .project-tags {
