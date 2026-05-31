@@ -247,6 +247,11 @@
   }
 
   @media (min-width: 900px) {
+    .portrait-stage {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
     .sticky-portrait {
       grid-column: 2;
     }
