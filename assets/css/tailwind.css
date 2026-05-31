@@ -151,6 +151,16 @@
     @apply max-w-[36rem];
   }
 
+  @media (max-width: 900px) {
+    .intro-story-grid {
+      padding-bottom: 0;
+    }
+
+    .about-section {
+      padding-top: 2.5rem;
+    }
+  }
+
   .hero {
     @apply py-10 sm:py-14 md:py-16;
   }
@@ -164,7 +174,14 @@
   }
 
   .hero-eyebrow {
-    @apply mb-4 inline-block text-[0.95rem] font-bold uppercase tracking-[0.14em] text-accent sm:text-eyebrow;
+    @apply mb-4 inline-block text-[0.9rem] font-bold uppercase tracking-[0.14em] text-accent;
+  }
+
+  @media (min-width: 640px) {
+    .hero-eyebrow {
+      font-size: 1rem;
+      line-height: 1.2;
+    }
   }
 
   .intro-name-title {
@@ -230,23 +247,33 @@
     top: 64%;
   }
 
-  @media (max-width: 899px) {
+  @media (max-width: 900px) {
     .portrait-stage {
-      max-width: min(37.5rem, clamp(21rem, calc(185.75rem - 293vw), 100%));
+      max-width: min(24rem, 100%);
+      margin-left: 0;
+      margin-right: auto;
     }
+  }
 
+  @media (min-width: 600px) and (max-width: 900px) {
+    .portrait-stage {
+      max-width: min(24rem, 100%);
+    }
+  }
+
+  @media (min-width: 600px) and (max-width: 700px) {
+    .hero-image {
+      height: clamp(21.43rem, calc(137vw - 29.94rem), 30rem);
+    }
+  }
+
+  @media (max-width: 599px) {
     .hero-image {
       aspect-ratio: 1.12 / 1;
     }
   }
 
-  @media (max-width: 767px) {
-    .portrait-stage {
-      max-width: min(37.5rem, 100%);
-    }
-  }
-
-  @media (min-width: 900px) {
+  @media (min-width: 901px) {
     .portrait-stage {
       margin-left: auto;
       margin-right: 0;

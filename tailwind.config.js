@@ -35,7 +35,7 @@ module.exports = {
         sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
       },
       fontSize: {
-        eyebrow: ["1.2rem", { lineHeight: "1.2" }],
+        eyebrow: ["1rem", { lineHeight: "1.2" }],
         "body-sm": ["0.9rem", { lineHeight: "1.25" }],
         body: ["1.16rem", { lineHeight: "1.64" }],
         "body-lg": ["1.16rem", { lineHeight: "1.72" }],
