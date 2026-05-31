@@ -58,6 +58,7 @@
 
   .nav {
     @apply grid min-h-16 grid-cols-[1fr_auto] items-center gap-4 py-3 md:flex md:h-16 md:justify-between md:py-0;
+    position: relative;
   }
 
   .nav-links {
@@ -73,7 +74,11 @@
   }
 
   .nav-links li:first-child a {
-    @apply pl-0 text-[0.8rem] font-bold uppercase tracking-[0.14em] text-accent md:pl-[0.85rem] md:text-body-sm md:font-medium md:normal-case md:tracking-normal md:text-ink-soft;
+    @apply pl-0 text-body-sm font-medium normal-case tracking-normal text-ink-soft md:pl-[0.85rem];
+  }
+
+  .nav-links li:first-child a:hover {
+    @apply bg-transparent;
   }
 
   .nav-social,
@@ -83,6 +88,26 @@
 
   .nav-social {
     @apply justify-end;
+  }
+
+  .mobile-menu-toggle {
+    @apply inline-flex h-9 items-center justify-center gap-2 rounded-sm bg-ink px-3 text-body-sm font-semibold leading-tight text-white transition duration-150 hover:-translate-y-px hover:bg-accent md:hidden;
+  }
+
+  .mobile-menu-toggle svg {
+    @apply h-4 w-4;
+  }
+
+  .mobile-menu {
+    @apply absolute left-6 right-6 top-[calc(100%+0.5rem)] z-[60] grid gap-1 rounded-md border border-line bg-surface p-2 shadow-lg md:hidden;
+  }
+
+  .mobile-menu[hidden] {
+    display: none;
+  }
+
+  .mobile-menu a {
+    @apply rounded-sm px-3 py-3 text-body-sm font-medium leading-tight text-ink-soft transition-colors duration-150 hover:bg-accent-soft hover:text-ink;
   }
 
   .social-icon {
@@ -111,7 +136,7 @@
   }
 
   .sticky-portrait {
-    @apply min-[900px]:sticky min-[900px]:top-24 min-[900px]:self-start min-[900px]:py-8;
+    @apply min-[900px]:sticky min-[900px]:top-32 min-[900px]:self-start min-[900px]:py-8;
   }
 
   .about-panel {
@@ -143,7 +168,7 @@
   }
 
   .portrait-stage {
-    @apply relative mx-auto w-full max-w-[24rem] min-[900px]:max-w-[29rem];
+    @apply relative mx-auto w-full max-w-[24rem] min-[900px]:max-w-[27rem];
   }
 
   .hero-image {
@@ -199,7 +224,13 @@
 
   @media (max-width: 899px) {
     .portrait-stage {
-      @apply max-w-[21rem];
+      max-width: clamp(21rem, calc(185.75rem - 293vw), 100%);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .portrait-stage {
+      @apply max-w-none;
     }
   }
 
@@ -342,17 +373,7 @@
   }
 
   .project-card {
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
     @apply relative flex flex-col overflow-hidden rounded-md border border-line bg-surface text-inherit shadow-sm transition duration-200 hover:border-line-strong hover:text-inherit hover:shadow-md;
-    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(0);
-    transform-style: preserve-3d;
-    will-change: transform;
-  }
-
-  .project-card:hover,
-  .project-card.is-tilting {
-    transform: perspective(1100px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateY(-2px);
   }
 
   .project-card-feature {
@@ -399,13 +420,16 @@
     @apply flex aspect-[16/10] items-center justify-center overflow-hidden border-b border-line bg-paper-warm;
   }
 
+  .project-media-link {
+    @apply flex h-full w-full items-center justify-center;
+  }
+
   .project-media img {
     @apply h-full w-full object-contain p-5 transition duration-300;
   }
 
-  .project-card.is-tilting .project-media img,
-  .project-card.is-tilting .qr-mock {
-    transform: translateZ(18px) scale(1.015);
+  .project-title-link {
+    @apply text-ink-title transition-colors duration-150 hover:text-accent;
   }
 
   .project-body {
@@ -418,6 +442,19 @@
 
   .tag {
     @apply inline-flex rounded-full bg-accent-soft px-[0.6rem] py-1;
+  }
+
+  .project-highlights {
+    @apply mb-4 grid gap-1.5 border-t border-line pt-3 text-[0.85rem] font-medium leading-[1.45] text-ink-soft;
+  }
+
+  .project-highlights li {
+    @apply flex gap-2;
+  }
+
+  .project-highlights li::before {
+    content: "";
+    @apply mt-[0.55em] h-1.5 w-1.5 shrink-0 rounded-full bg-accent;
   }
 
   .project-link {
@@ -499,12 +536,7 @@
   }
 
   .value-step,
-  .systems-flow::after,
-  .project-card,
-  .project-card:hover,
-  .project-card.is-tilting,
-  .project-card.is-tilting .project-media img,
-  .project-card.is-tilting .qr-mock {
+  .systems-flow::after {
     transform: none !important;
   }
 }

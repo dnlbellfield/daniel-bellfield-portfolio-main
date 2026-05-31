@@ -69,7 +69,20 @@
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23a11.509 11.509 0 013.003-.404c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
           </svg>
         </a>
+        <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" data-mobile-menu-toggle>
+          <span class="font-normal" >Menu</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" d="M5 8h14M5 16h14" />
+          </svg>
+        </button>
       </div>
+
+      <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation" data-mobile-menu hidden>
+        <a href="#home">Daniel Bellfield</a>
+        <a href="#about">About</a>
+        <a href="#workflow">How I Work</a>
+        <a href="#projects">Projects</a>
+      </nav>
     </div>
   </header>
 
@@ -78,7 +91,7 @@
     <section id="home" class="intro-story order-1">
       <div class="container">
         <div class="intro-story-grid">
-          <div class="flex max-w-[34rem] flex-col justify-center min-[900px]:min-h-[min(calc(100vh_-_4rem),56.25rem)] min-[900px]:py-8 min-[900px]:pt-0">
+          <div class="flex max-w-[34rem] flex-col justify-center min-[900px]:min-h-[min(calc(100vh_-_4rem),54rem)] min-[900px]:py-8 min-[900px]:pt-0">
             <p class="hero-eyebrow fade-up">Web &amp; Email Developer</p>
             <h1 class="intro-name-title mb-4 max-w-[36rem] font-semibold leading-[1.06] tracking-[-0.03em] text-ink-title text-balance fade-up delay-1">Daniel<br />Bellfield</h1>
             <h2 class="intro-support-title mb-4 max-w-[36rem] font-medium leading-[1.2] tracking-[-0.03em] text-balance text-gray-700 fade-up delay-1">I understand the systems behind digital campaign work.</h2>
@@ -111,13 +124,13 @@
               </p>
 
               <p class="mb-5 max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
-                My strength is understanding the system behind the work. I know how creative, content, code, platforms, data, testing, and launch requirements connect, and I use that perspective to help teams move campaign work forward with fewer issues.
+              My strength is understanding how campaign work moves through a team. I work with account, creative, design, ads, analytics, and development teams to help the details come together and keep work moving.
               </p>
 
               <p class="mb-5 max-w-[39rem] leading-7 text-body font-normal tracking-normal text-ink-soft">
                 Since 2022, I've worked on responsive HTML emails, Salesforce Marketing Cloud support, CMS updates, launch QA, and GA4 tracking. Outside of work, I build tools like
                 <a href="https://emailclarity.netlify.app" target="_blank" rel="noopener">EmailClarity</a>
-                and <a href="https://portfolio-up.com" target="_blank" rel="noopener">Portfolio-Up</a> to keep learning, test ideas, and explore better ways to build digital work.
+                and <a href="https://portfolio-up.com" target="_blank" rel="noopener">Portfolio-Up</a> to keep learning, test ideas, and explore better ways to support digital production.
               </p>
 
               <a href="https://www.linkedin.com/in/danielbellfield-dev" target="_blank" rel="noopener" class="btn btn-primary mt-2 text-body-sm font-semibold leading-tight text-white hover:text-white">
@@ -254,49 +267,67 @@
         </div>
 
         <div class="projects-grid">
-          <a href="https://portfolio-up.com" target="_blank" rel="noopener" class="project-card project-card-feature">
+          <article class="project-card project-card-feature">
             <div class="project-media">
-              <img src="images/_0_port.avif" alt="Portfolio-Up preview" />
+              <a href="https://portfolio-up.com" target="_blank" rel="noopener" class="project-media-link" aria-label="View Portfolio-Up">
+                <img src="images/_0_port.avif" alt="Portfolio-Up preview" />
+              </a>
             </div>
             <div class="project-body">
               <div class="project-tags">
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Laravel</span>
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Live Product</span>
               </div>
-              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">Portfolio-Up</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">
+                <a href="https://portfolio-up.com" target="_blank" rel="noopener" class="project-title-link">Portfolio-Up</a>
+              </h3>
               <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
-                A live profile-building tool that turns profile details, work history, skills, and images into a mobile-friendly personal site. Built with Laravel behind the scenes, it helped me practice product thinking, uploads, deployment, and user-facing workflows.
+                A Laravel profile builder that turns user details, work history, skills, and uploads into mobile-friendly portfolio pages.
               </p>
-              <span class="project-link text-body-sm font-semibold leading-tight text-accent">
+              <ul class="project-highlights">
+                <li>Multi-step profile flow</li>
+                <li>Uploads, database logic, and generated pages</li>
+                <li>Laravel, PHP, and Blade</li>
+              </ul>
+              <a href="https://portfolio-up.com" target="_blank" rel="noopener" class="project-link text-body-sm font-semibold leading-tight text-accent">
                 View Project
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </span>
+              </a>
             </div>
-          </a>
+          </article>
 
-          <a href="https://emailclarity.netlify.app/" target="_blank" rel="noopener" class="project-card project-card-secondary">
+          <article class="project-card project-card-secondary">
             <div class="project-media">
-              <img src="images/0_0email.avif" alt="EmailClarity preview" />
+              <a href="https://emailclarity.netlify.app/" target="_blank" rel="noopener" class="project-media-link" aria-label="View EmailClarity">
+                <img src="images/0_0email.avif" alt="EmailClarity preview" />
+              </a>
             </div>
             <div class="project-body">
               <div class="project-tags">
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Email</span>
                 <span class="tag text-[0.68rem] font-semibold uppercase tracking-[0.04em] text-accent">Live Site</span>
               </div>
-              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">EmailClarity</h3>
+              <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">
+                <a href="https://emailclarity.netlify.app/" target="_blank" rel="noopener" class="project-title-link">EmailClarity</a>
+              </h3>
               <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
-                A focused service site for email audits, automation review, custom email coding, and GA4 tracking. Built around the same production problems I support in campaign work: clean builds, better setup, and clearer tracking.
+                A focused service site for email audits, automation review, custom email coding, and tracking support.
               </p>
-              <span class="project-link text-body-sm font-semibold leading-tight text-accent">
+              <ul class="project-highlights">
+                <li>Service positioning and offer flow</li>
+                <li>Email audit, automation, coding, and tracking copy</li>
+                <li>Conversion-focused landing page structure</li>
+              </ul>
+              <a href="https://emailclarity.netlify.app/" target="_blank" rel="noopener" class="project-link text-body-sm font-semibold leading-tight text-accent">
                 View Project
                 <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>
-              </span>
+              </a>
             </div>
-          </a>
+          </article>
 
           <article class="project-card project-card-secondary">
             <div class="project-media">
@@ -332,8 +363,13 @@
               </div>
               <h3 class="mb-[0.35rem] text-card-title font-semibold leading-[1.28] tracking-[-0.01em] text-ink-title">QR Code Generator</h3>
               <p class="mb-5 flex-1 leading-7 text-body font-normal tracking-normal text-ink-soft">
-                An internal utility built to replace a paid QR platform, reduce recurring costs, and remove usage-limit friction. A small example of turning repeated workflow pain into a practical tool.
+                An internal utility that replaced a paid QR platform and made a repeated production task easier.
               </p>
+              <ul class="project-highlights">
+                <li>Replaced a paid third-party QR tool</li>
+                <li>Reduced dependency and recurring friction</li>
+                <li>Made QR creation easier to repeat</li>
+              </ul>
               <span class="project-link muted text-body-sm font-semibold leading-tight text-ink-muted">Workflow Tool</span>
             </div>
           </article>
@@ -347,7 +383,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <p class="mb-1 text-[1.05rem] font-semibold text-white">Daniel Bellfield</p>
+          <p class="mb-1 text-[0.9rem] font-medium text-white">Daniel Bellfield</p>
         </div>
 
         <nav class="footer-nav">
@@ -382,6 +418,49 @@
     </div>
   </footer>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuToggle = document.querySelector("[data-mobile-menu-toggle]");
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+
+      if (!menuToggle || !mobileMenu) return;
+
+      const setMenuOpen = (isOpen) => {
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        mobileMenu.hidden = !isOpen;
+      };
+
+      menuToggle.addEventListener("click", function (event) {
+        event.stopPropagation();
+        setMenuOpen(menuToggle.getAttribute("aria-expanded") !== "true");
+      });
+
+      mobileMenu.addEventListener("click", function (event) {
+        if (event.target.closest("a")) {
+          setMenuOpen(false);
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (mobileMenu.hidden) return;
+        if (event.target.closest("[data-mobile-menu]") || event.target.closest("[data-mobile-menu-toggle]")) return;
+        setMenuOpen(false);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          setMenuOpen(false);
+          menuToggle.focus();
+        }
+      });
+
+      window.addEventListener("resize", function () {
+        if (window.matchMedia("(min-width: 768px)").matches) {
+          setMenuOpen(false);
+        }
+      });
+    });
+  </script>
   <script>
     // Smooth scroll with header offset
     document.addEventListener("DOMContentLoaded", function () {
@@ -446,35 +525,6 @@
       updateTimelineState();
       window.addEventListener("scroll", updateTimelineState, { passive: true });
       window.addEventListener("resize", updateTimelineState);
-    });
-  </script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-      const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-
-      if (finePointer && !reduceMotion) {
-        document.querySelectorAll(".project-card").forEach((card) => {
-          card.addEventListener("pointermove", (event) => {
-            const rect = card.getBoundingClientRect();
-            const x = (event.clientX - rect.left) / rect.width;
-            const y = (event.clientY - rect.top) / rect.height;
-            const tiltX = (0.5 - y) * 5.5;
-            const tiltY = (x - 0.5) * 5.5;
-
-            card.style.setProperty("--tilt-x", `${tiltX.toFixed(2)}deg`);
-            card.style.setProperty("--tilt-y", `${tiltY.toFixed(2)}deg`);
-            card.classList.add("is-tilting");
-          });
-
-          card.addEventListener("pointerleave", () => {
-            card.style.setProperty("--tilt-x", "0deg");
-            card.style.setProperty("--tilt-y", "0deg");
-            card.classList.remove("is-tilting");
-          });
-        });
-      }
     });
   </script>
 </body>
