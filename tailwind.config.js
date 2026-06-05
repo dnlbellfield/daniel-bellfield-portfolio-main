@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         ink: {
-          DEFAULT: "#162033",
+          DEFAULT: "#374151",
           soft: "#425066",
           muted: "#758195",
           title: "#1b2a41",
