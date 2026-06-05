@@ -91,7 +91,7 @@
   }
 
   .mobile-menu-toggle {
-    @apply inline-flex h-9 items-center justify-center gap-2 rounded-sm bg-ink px-3 text-body-sm font-semibold leading-tight text-white transition duration-150 hover:-translate-y-px hover:bg-accent md:hidden;
+    @apply inline-flex h-9 items-center justify-center gap-2 rounded-sm bg-gray-600 px-3 text-body-sm font-semibold leading-tight text-white transition duration-150 hover:-translate-y-px hover:bg-gray-700 md:hidden;
   }
 
   .mobile-menu-toggle svg {
@@ -111,7 +111,7 @@
   }
 
   .social-icon {
-    @apply inline-flex h-9 w-9 items-center justify-center rounded-sm bg-ink text-white transition duration-150 hover:-translate-y-px hover:bg-accent hover:text-white;
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-sm bg-gray-600 text-white transition duration-150 hover:-translate-y-px hover:bg-gray-700 hover:text-white;
   }
 
   .social-icon svg {
@@ -407,6 +407,10 @@
     @apply max-w-[44rem];
   }
 
+  .about-body a {
+    @apply font-semibold;
+  }
+
   .projects-grid {
     @apply grid grid-cols-1 gap-5 min-[760px]:grid-cols-2 min-[900px]:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)] min-[900px]:grid-rows-2 min-[900px]:gap-6;
   }
@@ -538,11 +542,11 @@
   }
 
   .footer-social .social-icon {
-    @apply bg-ink;
+    @apply bg-gray-600;
   }
 
   .footer-social .social-icon:hover {
-    @apply bg-accent;
+    @apply bg-gray-700;
   }
 
   .footer-bottom {
