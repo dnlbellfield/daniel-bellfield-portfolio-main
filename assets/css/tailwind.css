@@ -131,7 +131,7 @@
   }
 
   .intro-story {
-    @apply bg-paper pb-6 pt-10 sm:pb-8 sm:pt-16 min-[900px]:py-24 lg:py-32;
+    @apply bg-paper pb-3 pt-10 sm:pb-6 sm:pt-16 min-[900px]:py-24 lg:py-32;
   }
 
   .intro-story-grid {
@@ -160,7 +160,7 @@
     }
 
     .about-section {
-      padding-top: 1.25rem;
+      padding-top: 0.75rem;
     }
   }
 
