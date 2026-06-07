@@ -415,7 +415,7 @@
   }
 
   .projects-grid {
-    @apply grid grid-cols-1 gap-5 min-[760px]:grid-cols-2 min-[900px]:grid-cols-[minmax(0,1.18fr)_minmax(18rem,0.82fr)] min-[900px]:grid-rows-2 min-[900px]:gap-6;
+    @apply grid grid-cols-1 gap-5 min-[760px]:grid-cols-2 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(22rem,1fr)] min-[900px]:grid-rows-2 min-[900px]:gap-7;
   }
 
   .project-card {
@@ -443,7 +443,7 @@
   }
 
   .project-card-secondary {
-    @apply min-[900px]:grid min-[900px]:grid-cols-[0.9fr_1.1fr] min-[900px]:items-stretch;
+    @apply min-[900px]:grid min-[900px]:grid-cols-[0.82fr_1.18fr] min-[900px]:items-stretch;
   }
 
   .project-card-secondary .project-media {
