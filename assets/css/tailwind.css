@@ -126,13 +126,16 @@
     @apply mx-auto mb-11 max-w-2xl text-center;
   }
 
-  .intro-story,
   .hero {
     @apply bg-paper;
   }
 
+  .intro-story {
+    @apply bg-paper py-24 lg:py-32;
+  }
+
   .intro-story-grid {
-    @apply grid grid-cols-1 gap-8 pb-4 pt-8 sm:gap-10 sm:pb-8 sm:pt-12 min-[900px]:min-h-[min(calc(100vh_-_4rem),54rem)] min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:items-center min-[900px]:gap-14 min-[900px]:py-8;
+    @apply grid grid-cols-1 gap-8 pb-4 pt-8 sm:gap-10 sm:pb-8 sm:pt-12 min-[900px]:grid-cols-[0.9fr_0.82fr] min-[900px]:items-center min-[900px]:gap-14 min-[900px]:py-8;
   }
 
   .sticky-portrait {
