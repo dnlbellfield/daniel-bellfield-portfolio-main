@@ -177,22 +177,22 @@
   }
 
   .hero-eyebrow {
-    @apply mb-4 inline-block text-[0.9rem] font-bold uppercase tracking-[0.14em] text-accent;
+    @apply mb-4 inline-block text-[0.99rem] font-bold uppercase tracking-[0.14em] text-accent;
   }
 
   @media (min-width: 640px) {
     .hero-eyebrow {
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.2;
     }
   }
 
   .intro-name-title {
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(3.3rem, 6.6vw, 4.95rem);
   }
 
   .intro-support-title {
-    font-size: clamp(1.65rem, 2.6vw, 2.1rem);
+    font-size: clamp(1.815rem, 2.86vw, 2.31rem);
   }
 
   .portrait-stage {
@@ -231,7 +231,7 @@
 
   .portrait-bg-text {
     @apply pointer-events-none absolute z-10 font-black uppercase tracking-tight text-white;
-    font-size: 3.5rem;
+    font-size: 3.85rem;
     line-height: 1;
     opacity: 0.25;
     left: 50%;
@@ -364,7 +364,7 @@
 
   .value-step::before {
     content: counter(valueStep, decimal-leading-zero);
-    @apply relative z-[1] inline-flex h-[2.35rem] w-[2.35rem] items-center justify-center rounded-full border border-line bg-paper-warm text-[0.78rem] font-bold text-accent;
+    @apply relative z-[1] inline-flex h-[2.35rem] w-[2.35rem] items-center justify-center rounded-full border border-line bg-paper-warm text-[0.86rem] font-bold text-accent;
     box-shadow: 0 0 0 6px #eef4fb;
     transition:
       background-color 320ms ease,
@@ -381,7 +381,7 @@
   }
 
   .value-step h3 {
-    @apply text-[1.18rem] leading-[1.25] transition-colors duration-200;
+    @apply text-[1.3rem] leading-[1.25] transition-colors duration-200;
   }
 
   .value-step.is-active h3 {
@@ -439,7 +439,7 @@
   }
 
   .project-card-feature h3 {
-    @apply min-[900px]:text-[1.35rem];
+    @apply min-[900px]:text-[1.49rem];
   }
 
   .project-card-secondary {
@@ -491,7 +491,7 @@
   }
 
   .project-highlights {
-    @apply mb-4 grid gap-1.5 border-t border-line pt-3 text-[0.85rem] font-medium leading-[1.45] text-ink-soft;
+    @apply mb-4 grid gap-1.5 border-t border-line pt-3 text-[0.94rem] font-medium leading-[1.45] text-ink-soft;
   }
 
   .project-highlights li {
@@ -541,7 +541,7 @@
   }
 
   .footer-nav a {
-    @apply text-[0.9rem] font-medium leading-tight text-ink-soft hover:text-ink;
+    @apply text-[0.99rem] font-medium leading-tight text-ink-soft hover:text-ink;
   }
 
   .footer-social .social-icon {

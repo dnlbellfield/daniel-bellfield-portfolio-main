@@ -35,14 +35,14 @@ module.exports = {
         sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
       },
       fontSize: {
-        eyebrow: ["1rem", { lineHeight: "1.2" }],
-        "body-sm": ["0.9rem", { lineHeight: "1.25" }],
-        body: ["1.16rem", { lineHeight: "1.64" }],
-        "body-lg": ["1.16rem", { lineHeight: "1.72" }],
-        "card-title": ["1rem", { lineHeight: "1.28" }],
-        "hero-title": ["clamp(2.45rem,4.6vw,3.85rem)", { lineHeight: "1.08" }],
-        "section-title": ["clamp(1.9rem,2.8vw,2.45rem)", { lineHeight: "1.14" }],
-        "panel-title": ["clamp(1.45rem,2.15vw,1.95rem)", { lineHeight: "1.14" }]
+        eyebrow: ["1.1rem", { lineHeight: "1.2" }],
+        "body-sm": ["0.99rem", { lineHeight: "1.25" }],
+        body: ["1.276rem", { lineHeight: "1.64" }],
+        "body-lg": ["1.276rem", { lineHeight: "1.72" }],
+        "card-title": ["1.1rem", { lineHeight: "1.28" }],
+        "hero-title": ["clamp(2.695rem,5.06vw,4.235rem)", { lineHeight: "1.08" }],
+        "section-title": ["clamp(2.09rem,3.08vw,2.695rem)", { lineHeight: "1.14" }],
+        "panel-title": ["clamp(1.595rem,2.365vw,2.145rem)", { lineHeight: "1.14" }]
       },
       borderRadius: {
         sm: "0.5rem",
