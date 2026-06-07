@@ -388,6 +388,10 @@
     @apply text-accent;
   }
 
+  .value-step p em {
+    @apply mt-2 block;
+  }
+
   .project-tags,
   .tool-cloud,
   .footer-nav {
