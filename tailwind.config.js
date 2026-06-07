@@ -35,11 +35,11 @@ module.exports = {
         sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "sans-serif"]
       },
       fontSize: {
-        eyebrow: ["1.1rem", { lineHeight: "1.2" }],
-        "body-sm": ["0.99rem", { lineHeight: "1.25" }],
-        body: ["1.276rem", { lineHeight: "1.64" }],
-        "body-lg": ["1.276rem", { lineHeight: "1.72" }],
-        "card-title": ["1.1rem", { lineHeight: "1.28" }],
+        eyebrow: ["clamp(1rem,0.96rem + 0.32vw,1.1rem)", { lineHeight: "1.2" }],
+        "body-sm": ["clamp(0.92rem,0.9rem + 0.25vw,0.99rem)", { lineHeight: "1.25" }],
+        body: ["clamp(1.08rem,1rem + 0.75vw,1.276rem)", { lineHeight: "1.64" }],
+        "body-lg": ["clamp(1.08rem,1rem + 0.75vw,1.276rem)", { lineHeight: "1.72" }],
+        "card-title": ["clamp(1rem,0.96rem + 0.35vw,1.1rem)", { lineHeight: "1.28" }],
         "hero-title": ["clamp(2.695rem,5.06vw,4.235rem)", { lineHeight: "1.08" }],
         "section-title": ["clamp(2.09rem,3.08vw,2.695rem)", { lineHeight: "1.14" }],
         "panel-title": ["clamp(1.595rem,2.365vw,2.145rem)", { lineHeight: "1.14" }]
