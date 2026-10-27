@@ -408,3 +408,22 @@ body { background: var(--paper); }
   .workflow-step { padding: 0 0 1.8rem; }
   .workflow-step:last-child { padding-bottom: 0; }
 }
+
+
+/* Accessible, consistent typography */
+body, button, h1, h2, h3, h4, strong, .eyebrow, .section-label p, .section-kicker, .mobile-nav a {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+}
+body { line-height: 1.7; }
+h1, h2, h3 { letter-spacing: -.035em; }
+h2, h3 { font-weight: 700; }
+.hero h1 { font-weight: 800; line-height: 1; }
+.hero-position { font-weight: 600; line-height: 1.25; }
+.hero-position em { color: var(--blue-dark); font-family: inherit; font-weight: 700; }
+.hero-lede, .about-columns, .project-copy > p, .workflow-step p { line-height: 1.75; }
+.project-copy h3, .workflow-step h3 { line-height: 1.2; }
+.section-label p, .section-kicker { letter-spacing: .09em; }
+@media (max-width: 640px) {
+  .hero h1 { font-size: clamp(3.3rem, 15vw, 4.7rem); }
+  .hero-position { line-height: 1.3; }
+}
