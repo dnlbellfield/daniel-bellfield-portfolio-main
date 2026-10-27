@@ -478,3 +478,28 @@ h2, h3 { font-weight: 700; }
   .skills-panel > p:not(.section-kicker), .workflow-step p,
   .contact-inner > p:not(.section-kicker) { font-size: 1.0625rem; }
 }
+
+/* Small recurring accents */
+.section-label p, .section-kicker {
+  display: flex;
+  align-items: center;
+  gap: .65rem;
+}
+.section-label p::before, .section-kicker::before {
+  content: "";
+  flex: 0 0 1.5rem;
+  height: 2px;
+  background: currentColor;
+  opacity: .7;
+}
+.hero-position em {
+  text-decoration: underline;
+  text-decoration-color: #b9ceef;
+  text-decoration-thickness: .08em;
+  text-underline-offset: .18em;
+}
+.text-link { transition: color .2s ease, border-color .2s ease; }
+.text-link:hover, .text-link:focus-visible { color: var(--blue); border-color: var(--blue); }
+@media (prefers-reduced-motion: reduce) {
+  .text-link span { transform: none; }
+}
